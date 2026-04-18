@@ -1078,7 +1078,6 @@
   font-size: 0.9rem; text-align: center; margin-bottom: 12px;
 }
 </style>
-
 <!-- CTA CONTACT -->
 <section class="cta-section" id="contact">
   <div class="container">
@@ -1087,85 +1086,44 @@
       <h2>מוכן להחזיר את החשבון שלך?</h2>
       <p>שלח לנו את הפרטים ותוך שעה תקבל הערכה מקצועית חינמית</p>
 
-      <div id="contact-wrapper" style="max-width:640px; margin:40px auto 0;">
+<form id="contactForm" action="https://formspree.io/f/xykljjyv" method="POST"
+  style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:14px;">
 
-        <!-- Success -->
-        <div id="fs-success-msg">
-          <div class="success-icon">✅</div>
-          <h3>הפנייה התקבלה!</h3>
-          <p>נחזור אליך תוך שעה עם הערכה מקצועית.<br/>בינתיים אפשר לפנות אלינו גם בוואטסאפ.</p>
-          <a href="https://wa.me/972500000000" class="btn-primary" style="display:inline-flex;margin-top:20px;padding:12px 28px;font-size:0.95rem;">💬 פנה בוואטסאפ</a>
-        </div>
+  <input type="hidden" name="_replyto" value="jacksongreen@gmail.com" />
+  <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
 
-        <!-- Error -->
-        <div id="fs-error-msg">❌ אירעה שגיאה בשליחה. נסה שוב או פנה אלינו בוואטסאפ.</div>
+  <input type="text" name="שם מלא" placeholder="שם מלא *"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="שם מלא"></span>
 
-        <form id="contactForm" novalidate>
-          <input type="hidden" name="_replyto" value="jacksongreen@gmail.com" />
-          <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
+  <input type="tel" name="טלפון" placeholder="מספר טלפון *"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="טלפון"></span>
 
-          <!-- Row 1: Name + Phone -->
-          <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label class="form-label" for="inp-name">שם מלא <span style="color:var(--accent)">*</span></label>
-              <input type="text" id="inp-name" name="שם מלא" class="form-control" placeholder="ישראל ישראלי" required />
-              <span class="field-error" id="err-name"></span>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label" for="inp-phone">מספר טלפון <span style="color:var(--accent)">*</span></label>
-              <div class="input-group">
-                <span class="input-group-text">📱</span>
-                <input type="tel" id="inp-phone" name="טלפון" class="form-control"
-                  placeholder="050-0000000" required
-                  style="direction:ltr;text-align:left;" />
-              </div>
-              <span class="field-error" id="err-phone"></span>
-            </div>
-          </div>
+  <input type="text" name="שם משתמש" placeholder="שם משתמש באינסטגרם (@)"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="שם משתמש"></span>
 
-          <!-- Row 2: Instagram -->
-          <div class="mb-3">
-            <label class="form-label" for="inp-account">שם משתמש באינסטגרם <span style="color:var(--accent)">*</span></label>
-            <div class="input-group">
-              <span class="input-group-text" style="border-radius:12px 0 0 12px; border-right:none; font-weight:700;">@</span>
-              <input type="text" id="inp-account" name="שם משתמש" class="form-control"
-                placeholder="username" required
-                style="border-radius:0 12px 12px 0; direction:ltr; text-align:left;" />
-            </div>
-            <span class="field-error" id="err-account"></span>
-          </div>
+  <select name="סוג בעיה" required class="form-field" data-fs-field>
+    <option value="">בחר סוג בעיה *</option>
+    <option>שחזור מפריצה</option>
+    <option>שחזור מחסימה</option>
+    <option>שחזור מהשבתה</option>
+    <option>ריטיינר חודשי / הגנה</option>
+    <option>אחר</option>
+  </select>
+  <span class="field-error" data-fs-error="סוג בעיה"></span>
 
-          <!-- Row 3: Service chips -->
-          <div class="mb-3">
-            <label class="form-label">סוג הבעיה <span style="color:var(--accent)">*</span></label>
-            <div class="service-chips">
-              <label class="chip-label"><input type="radio" name="סוג בעיה" value="שחזור מפריצה" required /><span>🔓 שחזור מפריצה</span></label>
-              <label class="chip-label"><input type="radio" name="סוג בעיה" value="שחזור מחסימה" /><span>🚫 שחזור מחסימה</span></label>
-              <label class="chip-label"><input type="radio" name="סוג בעיה" value="שחזור מהשבתה" /><span>⚡ שחזור מהשבתה</span></label>
-              <label class="chip-label"><input type="radio" name="סוג בעיה" value="ריטיינר חודשי" /><span>👑 ריטיינר חודשי</span></label>
-              <label class="chip-label"><input type="radio" name="סוג בעיה" value="אחר" /><span>אחר</span></label>
-            </div>
-            <span class="field-error" id="err-service"></span>
-          </div>
+  <textarea name="תיאור" placeholder="תיאור קצר של הבעיה (אופציונלי)"
+    rows="3" class="form-field" style="resize:vertical;"></textarea>
 
-          <!-- Row 4: Description -->
-          <div class="mb-4">
-            <label class="form-label" for="inp-desc">תיאור הבעיה <span style="color:var(--muted);font-weight:400;">(אופציונלי)</span></label>
-            <textarea id="inp-desc" name="תיאור" class="form-control" rows="3"
-              placeholder="ספר לנו בקצרה מה קרה – מתי, מה ראית, מה ניסית..." style="resize:vertical;"></textarea>
-          </div>
+  <button type="submit" data-fs-submit-btn class="btn-primary"
+    style="width:100%; justify-content:center; font-size:1rem;">
+    🚀 שלח ותחל תהליך שחזור
+  </button>
 
-          <!-- Submit -->
-          <button type="submit" class="submit-btn" id="submitBtn">
-            🚀 שלח ותחל תהליך שחזור
-          </button>
+</form>
 
-          <div class="trust-badges">
-            <span class="trust-badge"><span class="dot"></span>ללא תשלום אם לא הצלחנו</span>
-            <span class="trust-badge"><span class="dot"></span>תגובה תוך שעה</span>
-            <span class="trust-badge"><span class="dot"></span>100% סודיות</span>
-          </div>
-        </form>
       </div>
     </div>
   </div>

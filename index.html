@@ -1006,29 +1006,43 @@
       <h2>מוכן להחזיר את החשבון שלך?</h2>
       <p>שלח לנו את הפרטים ותוך שעה תקבל הערכה מקצועית חינמית</p>
 
-      <form id="contactForm" style="max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px;position:relative;">
-        <input type="text" id="name" placeholder="שם מלא *" required
-          style="padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-family:Heebo,sans-serif;font-size:0.95rem;direction:rtl;" />
-        <input type="tel" id="phone" placeholder="מספר טלפון *" required
-          style="padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-family:Heebo,sans-serif;font-size:0.95rem;direction:rtl;" />
-        <input type="text" id="account" placeholder="שם משתמש באינסטגרם (@)" required
-          style="padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-family:Heebo,sans-serif;font-size:0.95rem;direction:rtl;" />
-        <select id="service" required
-          style="padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-family:Heebo,sans-serif;font-size:0.95rem;direction:rtl;">
-          <option value="">בחר סוג בעיה *</option>
-          <option>שחזור מפריצה</option>
-          <option>שחזור מחסימה</option>
-          <option>שחזור מהשבתה</option>
-          <option>ריטיינר חודשי / הגנה</option>
-          <option>אחר</option>
-        </select>
-        <textarea id="desc" placeholder="תיאור קצר של הבעיה (אופציונלי)" rows="3"
-          style="padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text);font-family:Heebo,sans-serif;font-size:0.95rem;direction:rtl;resize:vertical;"></textarea>
-        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;">
-          🚀 שלח ונתחיל תהליך שחזור
-        </button>
-        <p id="formMsg" style="display:none;color:var(--success);font-weight:700;text-align:center;">✅ תודה! נחזור אליך תוך שעה.</p>
-      </form>
+<form id="contactForm" action="https://formspree.io/f/xykljjyv" method="POST"
+  style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:14px;">
+
+  <input type="hidden" name="_replyto" value="jacksongreen@gmail.com" />
+  <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
+
+  <input type="text" name="שם מלא" placeholder="שם מלא *"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="שם מלא"></span>
+
+  <input type="tel" name="טלפון" placeholder="מספר טלפון *"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="טלפון"></span>
+
+  <input type="text" name="שם משתמש" placeholder="שם משתמש באינסטגרם (@)"
+    required class="form-field" data-fs-field />
+  <span class="field-error" data-fs-error="שם משתמש"></span>
+
+  <select name="סוג בעיה" required class="form-field" data-fs-field>
+    <option value="">בחר סוג בעיה *</option>
+    <option>שחזור מפריצה</option>
+    <option>שחזור מחסימה</option>
+    <option>שחזור מהשבתה</option>
+    <option>ריטיינר חודשי / הגנה</option>
+    <option>אחר</option>
+  </select>
+  <span class="field-error" data-fs-error="סוג בעיה"></span>
+
+  <textarea name="תיאור" placeholder="תיאור קצר של הבעיה (אופציונלי)"
+    rows="3" class="form-field" style="resize:vertical;"></textarea>
+
+  <button type="submit" data-fs-submit-btn class="btn-primary"
+    style="width:100%; justify-content:center; font-size:1rem;">
+    🚀 שלח ותחל תהליך שחזור
+  </button>
+
+</form>
     </div>
   </div>
 </section>

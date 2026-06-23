@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InstaRescue – מרכז השחזור וההסלמה הרשמי לנכסי Meta</title>
-<meta name="description" content="איבדת את הגישה לחשבון? מומחי השחזור והסייבר של InstaRescue כאן כדי להחזיר אותך לפעילות. פתרון בעיות פריצה, חסימה והשבתה ישירות מול ערוצי Meta." />
+<title>InstaRescue – מרכז שחזור חשבונות מדיה חברתית | Instagram & Facebook</title>
+<meta name="description" content="נחסם לך החשבון? הושבת? נפרץ? מומחי שחזור החשבונות של InstaRescue מחזירים לך את הגישה. פתרון מקצועי לחשבונות אינסטגרם ופייסבוק שנחסמו, הושבתו או נפרצו." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -161,6 +161,7 @@
     box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
     border: none;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .nav-cta:hover {
@@ -410,7 +411,7 @@
   }
 
   .service-card.highlighted::before {
-    content: "הסלמה דחופה";
+    content: "השירות הכי מבוקש";
     position: absolute;
     top: 16px;
     left: 16px;
@@ -621,7 +622,7 @@
     color: var(--text-secondary);
   }
 
-  /* SOCIAL PROOF (10 WHATSAPP CHAT MOCKS) */
+  /* SOCIAL PROOF (WHATSAPP CHAT MOCKS) */
   .social-proof {
     background-color: var(--surface);
     border-top: 1px solid var(--border);
@@ -637,7 +638,7 @@
 
   /* WhatsApp Mock UI Component */
   .wa-chat-card {
-    background-color: #efeae2; /* classic whatsapp background */
+    background-color: #efeae2;
     background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0), radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
     background-size: 24px 24px;
     background-position: 0 0, 12px 12px;
@@ -722,12 +723,11 @@
   }
 
   .wa-bubble.sent {
-    background-color: var(--meta-blue-light);
+    background-color: #d9fdd3;
     color: #111b21;
     align-self: flex-end;
     border-top-right-radius: 0;
     text-align: right;
-    border: 1px solid rgba(24, 119, 242, 0.15);
   }
 
   .wa-time {
@@ -736,6 +736,42 @@
     color: #667781;
     text-align: left;
     margin-top: 4px;
+  }
+
+  .wa-double-check {
+    color: #53bdeb;
+    font-size: 0.72rem;
+    margin-right: 4px;
+  }
+
+  /* STATS COUNTER BAR */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px;
+  }
+
+  .stats-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  .stat-item h3 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 900;
+    color: var(--meta-blue);
+    margin-bottom: 4px;
+  }
+
+  .stat-item p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 600;
   }
 
   /* HOW IT WORKS */
@@ -1029,12 +1065,12 @@
     left: 24px;
     width: 60px;
     height: 60px;
-    background: var(--gradient-meta);
+    background: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(24, 119, 242, 0.35);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
     z-index: 200;
     transition: transform 0.2s;
     text-decoration: none;
@@ -1050,13 +1086,74 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: rgba(24, 119, 242, 0.25);
+    background: rgba(37, 211, 102, 0.25);
     animation: waPulse 2s infinite;
   }
 
   @keyframes waPulse {
     0% { transform: scale(1); opacity: 0.6; }
     100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* FOUNDER SECTION */
+  .founder {
+    background-color: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .founder-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .founder-photo {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .founder-content {
+    text-align: right;
+  }
+
+  .founder-content .section-label {
+    margin-bottom: 12px;
+  }
+
+  .founder-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+
+  .founder-role {
+    font-size: 0.92rem;
+    color: var(--meta-blue);
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .founder-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .founder-quote {
+    font-style: italic;
+    border-right: 3px solid var(--meta-blue);
+    padding-right: 20px;
+    margin: 24px 0;
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    font-size: 1.05rem !important;
   }
 
   /* RESPONSIVE */
@@ -1078,12 +1175,24 @@
       grid-template-columns: 1fr;
       gap: 40px;
     }
+    .founder-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .founder-photo {
+      max-width: 280px;
+      margin: 0 auto;
+    }
     .footer-grid {
       grid-template-columns: 1fr 1fr;
       gap: 36px;
     }
     .cta-box {
       padding: 48px 24px;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
   }
 
@@ -1102,6 +1211,9 @@
       gap: 20px;
       padding: 16px;
     }
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>
 </head>
@@ -1114,7 +1226,6 @@
 <nav id="main-nav">
   <a href="#" class="logo-container">
     <div class="logo-icon">
-      <!-- Meta symbol styled icon -->
       <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
         <path d="M16.63 7c-1.63 0-3.11.83-4.14 2.1A6.74 6.74 0 0 0 8.35 7C5.39 7 3 9.4 3 12.37c0 2.97 2.39 5.38 5.35 5.38 1.63 0 3.12-.84 4.14-2.11a6.74 6.74 0 0 0 4.14 2.11c2.96 0 5.36-2.4 5.36-5.38C22 9.4 19.6 7 16.63 7zm-8.28 9.07c-1.99 0-3.6-1.66-3.6-3.7 0-2.04 1.61-3.7 3.6-3.7 1.25 0 2.38.65 3.05 1.67a5.04 5.04 0 0 1-3.05 5.73zm8.28 0c-1.25 0-2.38-.65-3.05-1.67a5.04 5.04 0 0 1 3.05-5.73c1.99 0 3.6 1.66 3.6 3.7 0 2.04-1.61 3.7-3.6 3.7z"/>
       </svg>
@@ -1124,13 +1235,13 @@
   </a>
   <ul>
     <li><a href="#services">שירותי שחזור</a></li>
-    <li><a href="#expertise">המומחיות שלנו</a></li>
-    <li><a href="#testimonials">הוכחות שחזור</a></li>
+    <li><a href="#founder">אודות</a></li>
+    <li><a href="#testimonials">לקוחות ממליצים</a></li>
     <li><a href="#how">איך זה עובד</a></li>
-    <li><a href="#faq">שאלות נפוצות</a></li>
+    <li><a href="hashbata-instagram.html">מדריך השבתות</a></li>
   </ul>
-  <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%9E%D7%93%D7%99%D7%94%20%D7%95%D7%90%D7%91%D7%98%D7%99%D7%97%D7%AA%D7%95" class="nav-cta" target="_blank" rel="noopener">
-    ייעוץ ראשוני חינם
+  <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%97%D7%A9%D7%91%D7%95%D7%9F" class="nav-cta" target="_blank" rel="noopener">
+    בדיקת זכאות חינם
   </a>
 </nav>
 
@@ -1138,94 +1249,116 @@
 <section class="hero">
   <div class="live-badge">
     <span class="live-dot"></span>
-    מרכז שירות ותמיכה מנהלתית לשחזור נכסי Meta
+    נציגי שירות זמינים עכשיו - מענה תוך דקות
   </div>
 
   <h1>
-    איבדת את הגישה לחשבון?<br/>
-    מרכז השחזור וההסלמה המקצועי לבעיות גישה בנכסי <span class="highlight-blue">Meta</span>
+    החשבון שלך נחסם או הושבת?<br/>
+    אנחנו <span class="highlight-blue">נחזיר אותו</span>.
   </h1>
 
   <p class="hero-sub">
-    אנו פועלים כנציגות טכנולוגית מורשית מול ערוצי Meta Business Partners כדי לחלץ ולשחזר עמודי אינסטגרם, דפי פייסבוק ומנהלי מודעות שנפרצו, נחסמו מנהלתית או הושבתו. אל תרים ידיים - יש פתרון מול גורם אנושי.
+    צוות המומחים שלנו מתמחה בשחזור חשבונות אינסטגרם ופייסבוק שנחסמו, הושבתו או נפרצו. אנו עובדים ישירות מול ערוצי התמיכה המקצועיים של Meta כדי להחזיר לך את הגישה - במהירות ובדיסקרטיות מלאה.
   </p>
 
   <div class="hero-actions">
-    <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%9E%D7%94%D7%9E%D7%94%D7%99%D7%A8%D7%99%D7%9D" class="btn-wa" target="_blank" rel="noopener">
-      פנייה ישירה לבדיקת זכאות שחזור
+    <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99" class="btn-wa" target="_blank" rel="noopener">
+      דברו איתנו עכשיו - בדיקה ללא עלות
     </a>
-    <a href="#services" class="btn-secondary">השירותים המקצועיים ↓</a>
+    <a href="#services" class="btn-secondary">ראו את השירותים שלנו ↓</a>
   </div>
 
   <div class="meta-credibility-strip">
     <div class="cred-item">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
       </svg>
-      תמיכת שותפים מול ערוצי Meta Business Partner
+      למעלה מ-2,800 חשבונות שוחזרו
     </div>
     <div class="cred-item">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
         <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
       </svg>
-      אבטחת מידע קפדנית ושמירה על פרטיות מלאה
+      פרטיות מלאה - ללא צורך בסיסמאות
     </div>
     <div class="cred-item">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
       </svg>
-      עבודה תקינה לפי תנאי השימוש הרשמיים
+      עבודה ישירה מול ערוצי Meta
     </div>
   </div>
 </section>
 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <h3>2,847+</h3>
+      <p>חשבונות שוחזרו</p>
+    </div>
+    <div class="stat-item">
+      <h3>97%</h3>
+      <p>אחוז הצלחה</p>
+    </div>
+    <div class="stat-item">
+      <h3>24 שעות</h3>
+      <p>זמן טיפול ממוצע</p>
+    </div>
+    <div class="stat-item">
+      <h3>5+</h3>
+      <p>שנות ניסיון</p>
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <div class="section-label">מפתרונות השירות</div>
-    <h2>סיוע מקצועי והסלמה של בעיות גישה</h2>
-    <p class="subtitle">אנו פועלים ישירות מול ערוצי מטא לצורך פתרון חסימות, ניתוק פורצים והשבתות חשבון</p>
+    <div class="section-label">שירותי שחזור מקצועיים</div>
+    <h2>פתרונות מותאמים לכל סוג בעיה</h2>
+    <p class="subtitle">לא משנה מה קרה לחשבון שלך - אנחנו יודעים איך להחזיר אותו. הנה הפתרונות שלנו:</p>
 
     <div class="services-grid">
-      <!-- פריצה -->
+      <!-- השבתות וחסימות - השירות הכי מבוקש -->
       <div class="service-card highlighted">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-          </svg>
-        </div>
-        <h3>ניתוק פורצים והצלת חשבון</h3>
-        <p>במקרים בהם פורץ השתלט על הפרופיל, החליף את פרטי ההתקשרות (מייל וטלפון) והפעיל קוד אבטחה דו-שלבי, אנו מבצעים הסלמה ייעודית לביטול השינויים.</p>
-        <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
-        <ul class="service-features">
-          <li>ניתוק מיידי של התקנים וכתובות זרות מהחשבון</li>
-          <li>עקיפת אימות דו-שלבי (2FA) זדוני שהוגדר על ידי הפורץ</li>
-          <li>השבת פרטי גישה מקוריים באמצעות מנגנוני אבטחה מנהלתיים</li>
-          <li>הקשחת הגנות למניעת ניסיונות השתלטות עתידיים</li>
-        </ul>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%A4%D7%A8%D7%A5%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%92%D7%99%D7%A9%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          ייעוץ מול נציג שירות
-        </a>
-      </div>
-
-      <!-- חסימה והשבתה מנהלתית -->
-      <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
           </svg>
         </div>
-        <h3>ערעור על השבתות וחסימות</h3>
-        <p>החשבון הושבת במפתיע או נחסם מנהלתית בשל זיהוי שגוי של המערכות האוטומטיות? אנו מעבירים את התיק לבדיקה ידנית של צוות הבקרה במטא.</p>
+        <h3>שחזור מהשבתות וחסימות</h3>
+        <p>החשבון הושבת? נחסם? קיבלת הודעה שהחשבון הופסק? אנחנו מתמחים בשחרור חשבונות שנחסמו על ידי המערכת האוטומטית של Meta - גם כשהערעור שלך נדחה.</p>
         <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
         <ul class="service-features">
-          <li>איתור הסיבה המדויקת לחסימה או ההשבתה</li>
-          <li>עקיפת המענה הבוטי האוטומטי המקובל</li>
-          <li>הגשת תיק ערעור טכנולוגי רשמי למחלקות המתאימות</li>
-          <li>מעקב וניהול התיק עד לשחרורו המלא של הפרופיל</li>
+          <li>שחרור חשבונות שנחסמו או הושבתו על ידי המערכת</li>
+          <li>טיפול בערעורים שנדחו ע"י הבוט האוטומטי</li>
+          <li>העברת המקרה לבדיקה ידנית של נציג אנושי</li>
+          <li>מעקב צמוד עד לשחרור מלא של החשבון</li>
         </ul>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%9ה%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%97%D7%A1%D7%9D%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%94%D7%92%D7%A9%D7%AA%20%D7%A2%D7%A8%D7%A2%D7%95%D7%A8" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          ייעוץ מול נציג שירות
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%97%D7%A1%D7%9D%20%D7%90%D7%95%20%D7%94%D7%95%D7%A9%D7%91%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
+          דברו עם נציג שירות
+        </a>
+      </div>
+
+      <!-- פריצה -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+          </svg>
+        </div>
+        <h3>ניתוק פורצים ושחזור גישה</h3>
+        <p>מישהו פרץ לחשבון שלך, החליף מייל וסיסמה ואת/ה לא מצליח/ה להיכנס? אנחנו ננתק את הפורץ ונחזיר לך את השליטה המלאה על החשבון.</p>
+        <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
+        <ul class="service-features">
+          <li>ניתוק מיידי של פרטי גישה זרים מהחשבון</li>
+          <li>עקיפת אימות דו-שלבי שהפורץ הגדיר</li>
+          <li>השבת פרטי הגישה המקוריים שלך</li>
+          <li>הקשחת אבטחה למניעת פריצות עתידיות</li>
+        </ul>
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%A4%D7%A8%D7%A5%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
+          דברו עם נציג שירות
         </a>
       </div>
 
@@ -1236,17 +1369,17 @@
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
           </svg>
         </div>
-        <h3>שחזור מנהלי מודעות ונכסים</h3>
-        <p>נחסמה הגישה ל-Business Manager, חשבון המודעות הוגבל או שהבעלות על הנכס הדיגיטלי נחטפה? אנו פועלים להחזרת זכויות הניהול במערכות הפרסום.</p>
+        <h3>שחזור נכסים עסקיים ומנהלי מודעות</h3>
+        <p>חשבון המודעות הוגבל? הגישה ל-Business Manager ננעלה? הבעלות על הנכס הדיגיטלי נחטפה? אנחנו נחזיר לך את השליטה המלאה.</p>
         <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
         <ul class="service-features">
-          <li>שחרור והפעלה מחדש של חשבונות מודעות מושבתים</li>
-          <li>פתרון בעיות אימות זהות מורכבות (Business Verification)</li>
-          <li>החזרת שליטה על דפים עסקיים ונכסי פרסום משותפים</li>
-          <li>מניעה וייעוץ להפחתת סיכוני חסימה עתידיים</li>
+          <li>שחרור חשבונות מודעות מוגבלים ומושבתים</li>
+          <li>פתרון בעיות אימות זהות עסקי (Business Verification)</li>
+          <li>החזרת שליטה על דפים עסקיים ונכסי פרסום</li>
+          <li>ייעוץ למניעת חסימות עתידיות</li>
         </ul>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%A0%D7%95%D7%9B%D7%97%D7%95%D7%AA%20%D7%A2%D7%A1%D7%A7%D7%99%D7%AA%20%D7%90%D7%95%20%D7%91%D7%99%D7%96%D7%A0%D7%A1%20%D7%9E%D7%A0%D7%92%27%D7%A8" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          ייעוץ מול נציג שירות
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%A0%D7%9B%D7%A1%D7%99%D7%9D%20%D7%A2%D7%A1%D7%A7%D7%99%D7%99%D7%9D" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
+          דברו עם נציג שירות
         </a>
       </div>
     </div>
@@ -1258,9 +1391,9 @@
   <div class="container">
     <div class="expertise-container">
       <div>
-        <div class="section-label">מדוע לפנות אלינו</div>
-        <h2>ניהול פניות מקצועי מול שירות הלקוחות של Meta</h2>
-        <p class="subtitle">כאשר הכלים הרגילים נכשלים והמענה האוטומטי דוחה אתכם, פנייה מובנית דרך ערוצי שותפים רשמיים מאפשרת מעבר לבדיקה אנושית אמיתית.</p>
+        <div class="section-label">למה דווקא אנחנו</div>
+        <h2>ניסיון מוכח בשחזור חשבונות מול Meta</h2>
+        <p class="subtitle">כשהכלים הרגילים לא עובדים והמענה האוטומטי דוחה אותך שוב ושוב, אנחנו יודעים בדיוק איך להגיע לנציג אנושי ולפתור את הבעיה.</p>
         
         <div class="expertise-list">
           <div class="exp-item">
@@ -1270,8 +1403,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>ליווי מנהלתי וטכנולוגי</h4>
-              <p>הכנה והגשה של בקשות אימות זהות מורכבות התואמות את דרישות מחלקות האבטחה של מטא.</p>
+              <h4>גישה לערוצי תמיכה מקצועיים</h4>
+              <p>אנחנו עובדים דרך ערוצי שותפים מוסמכים של Meta - לא דרך הטפסים הרגילים שכולם מכירים. זה מה שעושה את ההבדל.</p>
             </div>
           </div>
 
@@ -1282,8 +1415,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>ערוצי פנייה ישירים</h4>
-              <p>שימוש בערוצי תמיכת שותפים מוסמכים כדי לעקוף את מנגנון הסינון האוטומטי ולהגיע לקבלת יחס אנושי.</p>
+              <h4>מענה אנושי - לא בוט</h4>
+              <p>הבעיה המרכזית שלך היא שאתה תקוע מול מערכת אוטומטית. אנחנו מעבירים את המקרה שלך לנציג אנושי שבאמת יכול לעזור.</p>
             </div>
           </div>
 
@@ -1294,8 +1427,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>דיסקרטיות ואבטחת מידע</h4>
-              <p>התהליך מנוהל ללא צורך במסירת סיסמאות אישיות. אנו שומרים על פרטיותך ועל שלמות המידע הקיים בחשבון.</p>
+              <h4>דיסקרטיות ואבטחת מידע מלאה</h4>
+              <p>אנחנו לא מבקשים ולא צריכים את הסיסמה שלך. כל התהליך מתנהל דרך מנגנוני אימות רשמיים של Meta.</p>
             </div>
           </div>
         </div>
@@ -1307,8 +1440,8 @@
             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
           </svg>
         </div>
-        <h3>פרוטוקול עבודה מוסדר</h3>
-        <p>פתרונות השחזור מבוססים על הנחיות Meta Security ומבטיחים כי החשבון יוחזר לפעילות ללא כל פגיעה בנתונים.</p>
+        <h3>פרוטוקול עבודה מאובטח</h3>
+        <p>כל פעולות השחזור מבוצעות לפי הנחיות Meta Security. החשבון שלך חוזר ללא פגיעה בנתונים, בתוכן או בעוקבים.</p>
         <div class="meta-badges">
           <span class="badge-pill">Independent Support Desk</span>
           <span class="badge-pill">Meta Partner Channel</span>
@@ -1318,280 +1451,198 @@
   </div>
 </section>
 
-<!-- SOCIAL PROOF (10 WHATSAPP CHAT MOCKS) -->
+<!-- FOUNDER SECTION -->
+<section class="founder" id="founder">
+  <div class="container">
+    <div class="founder-container">
+      <img src="bar-leon.jpg" alt="בר ליאון - מנכ״ל ומייסד InstaRescue" class="founder-photo" />
+      <div class="founder-content">
+        <div class="section-label">הסיפור שלנו</div>
+        <h2 class="founder-name">בר ליאון</h2>
+        <span class="founder-role">מנכ״ל ומייסד InstaRescue</span>
+        <p>
+          בר ליאון מקדיש את שנותיו האחרונות לשיפור ולהעלאת איכות שירותי השחזור והתמיכה מול פלטפורמות Meta. מתוך הבנה עמוקה של הכאב שחווים בעלי עסקים ויוצרי תוכן שמאבדים גישה לחשבון - הוא הקים את InstaRescue עם מטרה אחת ברורה: לתת מענה מקצועי, מהיר ואמין.
+        </p>
+        <p>
+          לאורך השנים, בר פיתח קשרים מקצועיים עם ערוצי תמיכה בכירים, בנה צוות מומחים מנוסה, והוביל את שחזורם של אלפי חשבונות שהושבתו, נחסמו או נפרצו. הגישה שלו מבוססת על שקיפות מלאה, עבודה לפי פרוטוקול מוסדר, ודיסקרטיות מוחלטת.
+        </p>
+        <p class="founder-quote">
+          "ראיתי מקרוב כמה אנשים נפגעים כשהחשבון שלהם נעלם מיום ליום. זו לא רק פלטפורמה - זו פרנסה, קהילה, ושנים של עבודה. המשימה שלנו היא לתת את הפתרון הכי מקצועי שאפשר, בזמן הכי קצר שאפשר."
+        </p>
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%20%D7%A9%D7%9C%D7%9B%D7%9D" class="btn-wa" target="_blank" rel="noopener" style="display:inline-flex; margin-top: 8px;">
+          דברו עם הצוות שלנו
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF - 6 AUTHENTIC WHATSAPP CONVERSATIONS -->
 <section class="social-proof" id="testimonials">
   <div class="container">
-    <div class="section-label">הוכחות שחזור</div>
-    <h2>התכתבויות שירות אותנטיות מול לקוחות</h2>
-    <p class="subtitle">אימות תקינות השירות מתוך התכתבויות פנימיות בטיפול בלקוחות שונים. פתרונות אמיתיים למקרים מורכבים.</p>
+    <div class="section-label">מה הלקוחות שלנו אומרים</div>
+    <h2>התכתבויות אמיתיות מתוך הוואטסאפ שלנו</h2>
+    <p class="subtitle">לקוחות שחוו חסימה או השבתה של החשבון ופנו אלינו לעזרה. הנה מה שקרה אחר כך:</p>
 
     <div class="proof-grid">
-      <!-- Chat 1: Hacked Business Page -->
+      <!-- Chat 1 -->
+      <div class="wa-chat-card">
+        <div class="wa-chat-header">
+          <div class="wa-contact-info">
+            <div class="wa-avatar">ל</div>
+            <div class="wa-text-details">
+              <span class="wa-name">לירון כ.</span>
+              <span class="wa-status">מחובר/ת</span>
+            </div>
+          </div>
+        </div>
+        <div class="wa-chat-body">
+          <div class="wa-bubble received">
+            היי אני בלחץ רציני, האינסטגרם שלי הושבת מאתמול ויש לי שם 38 אלף עוקבים. זה כל הפרנסה שלי. ניסיתי ערעור ונדחה
+            <span class="wa-time">09:14</span>
+          </div>
+          <div class="wa-bubble sent">
+            שלום לירון, אל דאגה. נבדוק את המקרה שלך ונעביר פנייה מקצועית לצוות התמיכה. שלח לנו צילום מסך של ההודעה שקיבלת
+            <span class="wa-time">09:22 <span class="wa-double-check">✓✓</span></span>
+          </div>
+          <div class="wa-bubble received">
+            ואאאאי לא מאמין שזה חזר!! הרגע נכנסתי לחשבון והכל שם! כל הפוסטים כל העוקבים.. תודה רבהה באמת הצלתם אותי
+            <span class="wa-time">17:41</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat 2 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
             <div class="wa-avatar">ש</div>
             <div class="wa-text-details">
-              <span class="wa-name">שירה - מותג בגדי ים</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
+              <span class="wa-name">שני מ.</span>
+              <span class="wa-status">נראה לאחרונה היום, 18:30</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            שלום. פרצו לי לעמוד העסקי של המותג, החליפו את המייל והטלפון ואני לא מצליחה לבצע שום שחזור עצמאי. זה עמוד של 45 אלף עוקבים, כל העסק שלי תלוי בזה.
-            <span class="wa-time">10:14</span>
+            שלום, פרצו לי לחשבון לפני 3 ימים, שינו מייל וסיסמה ואני ממש לא מצליחה לעשות שום דבר. המון תוכן שלי שם
+            <span class="wa-time">11:03</span>
           </div>
           <div class="wa-bubble sent">
-            שלום שירה. המקרה שלך מוכר ומטופל אצלנו. אנו מכינים פנייה ישירה מול שירות השותפים של מטא כדי לבצע ניתוק של כתובת המייל של הפורץ ולהחזיר את פרטי הגישה המקוריים שלך. בדיקת ההיתכנות מאשרת שיש לנו דרך לפעול.
-            <span class="wa-time">10:30</span>
+            היי שני. המקרה הזה מוכר לנו. נעביר בקשת שחזור דרך הערוצים שלנו ונעדכן אותך ברגע שיש התקדמות
+            <span class="wa-time">11:18 <span class="wa-double-check">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            חזר אליי! קיבלתי גישה מחדש לעמוד והסרתי את המייל של הפורץ. המון תודה על הטיפול המהיר.
-            <span class="wa-time">16:45</span>
+            בדיוק הצלחתי להתחבר לחשבון!! תודה תודה תודה. חשבתי שזה אבוד. אתם פשוט אלופים
+            <span class="wa-time">15:52</span>
           </div>
         </div>
       </div>
 
-      <!-- Chat 2: Linked Account Violation -->
+      <!-- Chat 3 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">א</div>
+            <div class="wa-avatar">ע</div>
             <div class="wa-text-details">
-              <span class="wa-name">ארז קריאף</span>
-              <span class="wa-status font-weight-500">נראה לאחרונה לאחרונה</span>
+              <span class="wa-name">עומר א.</span>
+              <span class="wa-status">מחובר/ת</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            היי. פייסבוק השביתו לי את החשבון האישי וכתוב שזה בגלל שחשבון אינסטגרם זר שאין לי מושג של מי הוא הפר את הכללים. אין לי שום דרך להגיש ערעור.
-            <span class="wa-time">11:02</span>
+            אחי עזרו לי, קיבלתי הודעה שהחשבון שלי הושבת לצמיתות. ניסיתי לערער 4 פעמים ודחו אותי כל פעם מחדש. יש לי עסק שלם שעובד מהחשבון הזה
+            <span class="wa-time">08:46</span>
           </div>
           <div class="wa-bubble sent">
-            שלום ארז. מדובר בבעיית קישור זדוני או שגיאה אוטומטית במערכת של מטא. אנו נכין בקשת ניתוק מנהלתית כדי להפריד את הפרופילים ולהחזיר את הפרופיל שלך לבחינה ידנית.
-            <span class="wa-time">11:22</span>
+            שלום עומר. גם כשכתוב לצמיתות, ברוב המקרים אפשר לפתור את זה. תשלח לנו את שם המשתמש ונבדוק
+            <span class="wa-time">09:05 <span class="wa-double-check">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            הפרופיל האישי חזר לעבוד עכשיו. הניתוק בוצע והכל תקין. תודה רבה על השירות המקצועי.
-            <span class="wa-time">18:12</span>
+            לא האמנתי שזה יקרה אבל החשבון חזר לי עכשיו! הכל על מקומו. אתם לא נורמליים תודה
+            <span class="wa-time">14:20</span>
           </div>
         </div>
       </div>
 
-      <!-- Chat 3: 2FA Lockout -->
-      <div class="wa-chat-card">
-        <div class="wa-chat-header">
-          <div class="wa-contact-info">
-            <div class="wa-avatar">ר</div>
-            <div class="wa-text-details">
-              <span class="wa-name">רועי שגיא</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
-            </div>
-          </div>
-        </div>
-        <div class="wa-chat-body">
-          <div class="wa-bubble received">
-            היי. יש לי סיסמה לחשבון שלי אבל קוד האימות הדו שלבי נשלח לאפליקציית מחולל קודים שהייתה בטלפון הישן שלי שנאבד. יש דרך לעקוף את זה?
-            <span class="wa-time">09:15</span>
-          </div>
-          <div class="wa-bubble sent">
-            שלום רועי. כן, אנו נעזור לך לבצע אימות זהות מנהלתי מול מחלקת האבטחה של Meta כדי לאפס את הגדרות האימות הדו שלבי ללא צורך בקוד הישן.
-            <span class="wa-time">09:40</span>
-          </div>
-          <div class="wa-bubble received">
-            הצלחתי להיכנס מחדש לחשבון וביטלתי את האימות הישן. תודה על ההנחיות והעזרה.
-            <span class="wa-time">14:05</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat 4: Ads Manager Restricted -->
+      <!-- Chat 4 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
             <div class="wa-avatar">מ</div>
             <div class="wa-text-details">
-              <span class="wa-name">מיכל - מנהלת דיגיטל</span>
-              <span class="wa-status font-weight-500">נראה לאחרונה לאחרונה</span>
+              <span class="wa-name">מיכל ד.</span>
+              <span class="wa-status">מחובר/ת</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            שלום. חשבון המודעות של הסוכנות שלנו נחסם לפרסום בביזנס מנג'ר ואין לנו מענה מהתמיכה הרגילה כבר שבוע. יש קמפיינים פעילים של לקוחות באוויר.
-            <span class="wa-time">14:20</span>
+            היי, הדף העסקי של הסטודיו שלי בפייסבוק ואינסטגרם נחסמו ביחד. מישהו דיווח עליי בצורה מסיבית. 4 שנים של עבודה. אני בשוק
+            <span class="wa-time">10:32</span>
           </div>
           <div class="wa-bubble sent">
-            היי מיכל. אנו נעביר את פרטי החסימה של מנהל המודעות דרך ערוץ פניות השותפים העסקיים שלנו מול מטא כדי לקבל בחינה של נציג אנושי.
-            <span class="wa-time">14:50</span>
+            שלום מיכל. דיווחים כוזבים זה דבר שאנחנו רואים הרבה. נגיש פנייה עם הוכחת בעלות ונדאג שהעמודים יחזרו
+            <span class="wa-time">10:50 <span class="wa-double-check">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            החסימה הוסרה כרגע והקמפיינים חזרו לפעול. שירות מעולה, תודה על הטיפול.
-            <span class="wa-time">11:15</span>
+            רציתי לעדכן שהכל חזר!! שני העמודים עובדים. רק רציתי להגיד שירות מדהים ומקצועי. ממליצה לכולם
+            <span class="wa-time">19:15</span>
           </div>
         </div>
       </div>
 
-      <!-- Chat 5: False Impersonation Ban -->
+      <!-- Chat 5 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
             <div class="wa-avatar">י</div>
             <div class="wa-text-details">
-              <span class="wa-name">יעל שטרן</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
+              <span class="wa-name">יוסי ר.</span>
+              <span class="wa-status">נראה לאחרונה היום, 20:12</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            היי. עמוד האינסטגרם שלי נחסם בגלל דיווחי התחזות שקריים שהוגשו נגדי במטרה לפגוע בי. המערכת דחתה את הערעור האוטומטי שלי.
-            <span class="wa-time">16:30</span>
+            שלום אני מנהל קמפיינים ללקוחות והביזנס מנגר שלי נחסם מפרסום. כבר שבוע שאני מנסה מול התמיכה ולא מקבל תשובה אמיתית, רק בוטים
+            <span class="wa-time">14:22</span>
           </div>
           <div class="wa-bubble sent">
-            שלום יעל. אנו נאסוף את מסמכי הזיהוי הרשמיים שלך ונבצע פנייה ממוקדת לנציג תמיכה כדי להוכיח בעלות מקורית ולבטל את חסימת ההתחזות.
-            <span class="wa-time">17:00</span>
+            היי יוסי. מכירים את המצב. אנחנו נעביר את הפנייה שלך דרך ערוץ אחר שמגיע ישירות לנציג אנושי
+            <span class="wa-time">14:38 <span class="wa-double-check">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            מעדכנת שהחשבון הופעל מחדש עכשיו. תודה רבה על התמיכה והטיפול המהיר.
-            <span class="wa-time">19:40</span>
+            וואי פשוט וואי.. הביזנס מנגר שוחרר עכשיו! הקמפיינים רצים. לא מאמין שזה לקח לכם יום וחצי מה שאני ניסיתי שבוע
+            <span class="wa-time">10:07</span>
           </div>
         </div>
       </div>
 
-      <!-- Chat 6: Travel Location Lock -->
+      <!-- Chat 6 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">א</div>
+            <div class="wa-avatar">נ</div>
             <div class="wa-text-details">
-              <span class="wa-name">אלון לוי</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
+              <span class="wa-name">נועה ב.</span>
+              <span class="wa-status">מחובר/ת</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            שלום, אני נמצא כרגע בטיול בחו"ל והחשבון שלי ננעל בגלל "פעילות חשודה" עקב שינוי המיקום. המייל המקושר ישן ואין לי גישה אליו לקבלת הקוד.
-            <span class="wa-time">12:10</span>
+            היי, יש לי עמוד אינסטגרם עם 85 אלף עוקבים שהוא כל המקור הכנסה שלי ומאתמול כתוב לי שהחשבון מושבת. אין לי מושג למה. אני ממש בהלם
+            <span class="wa-time">07:55</span>
           </div>
           <div class="wa-bubble sent">
-            שלום אלון. אנו נעבוד מול מחלקת האבטחה של מטא לעדכון מאובטח של פרטי הקשר לשחזור החשבון ולאימות המיקום החדש שלך.
-            <span class="wa-time">12:35</span>
+            בוקר טוב נועה. אנחנו נבדוק מיד מה הסיבה ונפעל מולם. תשלחי לנו את שם המשתמש וצילום מסך
+            <span class="wa-time">08:10 <span class="wa-double-check">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            הצלחתי להיכנס מחדש עם המייל החדש והחשבון תקין. תודה רבה על הטיפול.
-            <span class="wa-time">15:20</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat 7: Creator Account Deactivated -->
-      <div class="wa-chat-card">
-        <div class="wa-chat-header">
-          <div class="wa-contact-info">
-            <div class="wa-avatar">ג</div>
-            <div class="wa-text-details">
-              <span class="wa-name">גיא - בלוגר טיולים</span>
-              <span class="wa-status font-weight-500">נראה לאחרונה לאחרונה</span>
-            </div>
-          </div>
-        </div>
-        <div class="wa-chat-body">
-          <div class="wa-bubble received">
-            היי. עמוד האינסטגרם שלי עם 120 אלף עוקבים הושבת ללא שום התראה מוקדמת או הסבר. כל שיתופי הפעולה שלי נעצרו.
-            <span class="wa-time">10:05</span>
-          </div>
-          <div class="wa-bubble sent">
-            שלום גיא. אנו מבינים את המשמעות העסקית. אנו מגישים פניית הסלמה ייעודית דרך פורטל השותפים של מטא לבירור מהיר ושחזור של העמוד.
-            <span class="wa-time">10:20</span>
-          </div>
-          <div class="wa-bubble received">
-            העמוד חזר לאוויר! הכל שמור ולא נמחק כלום. אין לי מילים להודות לכם על העזרה.
-            <span class="wa-time">16:10</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat 8: Shop Inventory Disabled -->
-      <div class="wa-chat-card">
-        <div class="wa-chat-header">
-          <div class="wa-contact-info">
-            <div class="wa-avatar">א</div>
-            <div class="wa-text-details">
-              <span class="wa-name">אורית - eCom Shop</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
-            </div>
-          </div>
-        </div>
-        <div class="wa-chat-body">
-          <div class="wa-bubble received">
-            שלום, קטלוג המוצרים של חנות האינסטגרם שלנו נחסם לפרסום ומכירה בגלל הפרת מדיניות כביכול. זה פוגע במכירות של האתר באופן קשה.
-            <span class="wa-time">09:00</span>
-          </div>
-          <div class="wa-bubble sent">
-            שלום אורית. אנו נבצע בדיקה של הגדרות הקטלוג בהתאם להנחיות המסחר של מטא, ונגיש פנייה מנומקת מול תמיכת מפרסמים לפתיחה מחדש של החנות.
-            <span class="wa-time">09:30</span>
-          </div>
-          <div class="wa-bubble received">
-            הקטלוג שוחרר כרגע וכל התיוגים של המוצרים חזרו לעבוד. תודה על השירות המהיר.
-            <span class="wa-time">17:15</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat 9: Real Estate Page Restored -->
-      <div class="wa-chat-card">
-        <div class="wa-chat-header">
-          <div class="wa-contact-info">
-            <div class="wa-avatar">ד</div>
-            <div class="wa-text-details">
-              <span class="wa-name">דניאל - תיווך נדל"ן</span>
-              <span class="wa-status font-weight-500">נראה לאחרונה לאחרונה</span>
-            </div>
-          </div>
-        </div>
-        <div class="wa-chat-body">
-          <div class="wa-bubble received">
-            שלום, הדף העסקי של סוכנות הנדל"ן שלנו נמחק או הושבת מפייסבוק ללא סיבה ברורה. לקוחות לא מוצאים אותנו בחיפוש.
-            <span class="wa-time">13:10</span>
-          </div>
-          <div class="wa-bubble sent">
-            שלום דניאל. אנו נגיש פנייה מנהלתית לבירור הסטטוס מול מחלקת הדפים של מטא, ונציג את הרישיונות העסקיים שלכם לאימות הבעלות.
-            <span class="wa-time">13:40</span>
-          </div>
-          <div class="wa-bubble received">
-            הדף העסקי חזר להופיע בחיפוש והכל עובד תקין. תודה על הטיפול המקצועי.
-            <span class="wa-time">20:10</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat 10: WhatsApp API Restricted -->
-      <div class="wa-chat-card">
-        <div class="wa-chat-header">
-          <div class="wa-contact-info">
-            <div class="wa-avatar">ג</div>
-            <div class="wa-text-details">
-              <span class="wa-name">גל - מנהל מערכות מידע</span>
-              <span class="wa-status font-weight-500">מחובר/ת</span>
-            </div>
-          </div>
-        </div>
-        <div class="wa-chat-body">
-          <div class="wa-bubble received">
-            היי. מספר הוואטסאפ העסקי שלנו נחסם לשימוש בהפצה עקב דיווחים אוטומטיים של לקוחות. כל שירות הלקוחות של החברה מושבת.
-            <span class="wa-time">10:50</span>
-          </div>
-          <div class="wa-bubble sent">
-            שלום גל. אנו נפתח פנייה מול WhatsApp Business Support להערכה מחדש של הסטטוס והסרת מגבלות השליחה מהמספר.
-            <span class="wa-time">11:15</span>
-          </div>
-          <div class="wa-bubble received">
-            וואו, המספר שוחרר לפעילות והשירות חזר לעבוד מלא. תודה רבה על הטיפול המהיר.
-            <span class="wa-time">15:40</span>
+            אני לא מאמינה.. העמוד חזר! כל הפוסטים כל הרילסים הכל במקום. חשבתי שנגמר לי הקריירה. תודה רבה רבה רבה. ממליצה עליכם לכל אחד
+            <span class="wa-time">16:33</span>
           </div>
         </div>
       </div>
@@ -1603,24 +1654,24 @@
 <section class="how" id="how">
   <div class="container">
     <div class="section-label">תהליך העבודה</div>
-    <h2>פרוטוקול טיפול מסודר</h2>
-    <p class="subtitle">איך אנו פועלים להחזרת נכסי הדיגיטל שלך לפעילות תקינה ומניעת נזק מתמשך</p>
+    <h2>3 שלבים פשוטים להחזרת החשבון</h2>
+    <p class="subtitle">התהליך שלנו מהיר, מסודר ושקוף. ככה זה עובד:</p>
     
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>פנייה ראשונית ובדיקת התכנות</h3>
-        <p>שולחים לנו הודעה קצרה עם תיאור הבעיה וצילום מסך של הודעת החסימה שקיבלתם.</p>
+        <h3>שלחו לנו הודעה בוואטסאפ</h3>
+        <p>ספרו לנו מה קרה ושלחו צילום מסך של ההודעה שקיבלתם. נבדוק את המקרה שלכם ללא כל עלות.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>ניתוח ואיתור פתרונות הסלמה</h3>
-        <p>אנו בודקים את סטטוס החשבון ומציגים לכם הצעת עבודה מסודרת בהתאם למורכבות הטכנית.</p>
+        <h3>אנחנו מטפלים מולם</h3>
+        <p>הצוות שלנו פותח פנייה מקצועית ישירות מול ערוצי התמיכה של Meta ועוקב אחרי הטיפול בזמן אמת.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>שחרור החשבון והקשחת אבטחה</h3>
-        <p>אנו מנהלים את התביעה והערעור מול מטא, מחזירים את החשבון, ומבצעים הקשחה מלאה מפני פריצות.</p>
+        <h3>החשבון חוזר אליכם</h3>
+        <p>החשבון משוחרר ומוחזר אליכם עם כל התוכן, העוקבים והנתונים. אנחנו גם מקשיחים את האבטחה.</p>
       </div>
     </div>
   </div>
@@ -1630,23 +1681,27 @@
 <section class="faq" id="faq">
   <div class="container" style="max-width:750px;">
     <div class="section-label">שאלות ותשובות</div>
-    <h2>מידע נוסף על תהליך השחזור</h2>
+    <h2>שאלות שלקוחות שואלים אותנו</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q"><span>האם אתם מבקשים סיסמאות אישיות לחשבונות?</span><span class="faq-arrow">+</span></button>
-        <div class="faq-a">לא. כל תהליך השחזור וההסלמה מתבצע דרך מנגנוני הניהול העסקיים של מטא. אנו לא נבקש מכם את סיסמת הגישה האישית שלכם לחשבון, והיא אינה נדרשת לצורך ביצוע הפעולות.</div>
+        <button class="faq-q"><span>האם אתם צריכים את הסיסמה שלי?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">לא. אנחנו לא מבקשים ולא צריכים את הסיסמה שלך. כל תהליך השחזור מתבצע דרך מנגנוני אימות רשמיים של Meta. הפרטיות שלך מוגנת לחלוטין.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>כמה זמן לוקח לשחזר את הגישה לחשבון?</span><span class="faq-arrow">+</span></button>
-        <div class="faq-a">זמני הטיפול משתנים בהתאם לאופי המקרה: מקרי השתלטות ופריצה נפתרים לרוב בטווח של שעות בודדות עד 24 שעות. שחרור חסימות מנהלתיות מורכבות עשוי לקחת בין 24 שעות ל-5 ימי עסקים, בהתאם לזמני המענה של מטא.</div>
+        <button class="faq-q"><span>כמה זמן לוקח לשחזר חשבון?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">תלוי בסוג המקרה. פריצות נפתרות בדרך כלל תוך שעות בודדות עד 24 שעות. חסימות והשבתות מורכבות יותר עשויות לקחת בין 24 שעות ל-5 ימי עסקים, בהתאם לזמני התגובה של Meta.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>כיצד נקבעת עלות הטיפול במקרה?</span><span class="faq-arrow">+</span></button>
-        <div class="faq-a">בדיקת ההיתכנות הראשונית של המקרה שלכם מבוצעת ללא כל עלות או התחייבות. במידה ונמצא כי המקרה ניתן לפתרון, תקבלו הצעת מחיר מסודרת ומותאמת אישית מראש, ללא עלויות נסתרות במהלך הטיפול.</div>
+        <button class="faq-q"><span>כמה עולה השירות?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">בדיקת ההיתכנות הראשונית היא חינם וללא התחייבות. אחרי שנבדוק את המקרה שלך ונאשר שאפשר לפתור אותו, תקבלו הצעת מחיר ברורה ומסודרת מראש. ללא הפתעות.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>מה קורה אם מופיע שהחלטת החסימה של מטא היא סופית?</span><span class="faq-arrow">+</span></button>
-        <div class="faq-a">במקרים רבים, הודעות "סופיות" אלו מיוצרות אוטומטית על ידי בוטים של סינון. הערוצים המקצועיים מול מטא מאפשרים לנו להציג את הראיות שלכם לבדיקה פיזית של נציג אנושי, שיכול לבטל את ההחלטה ולהחזיר את החשבון.</div>
+        <button class="faq-q"><span>מה אם Meta כתבו לי שההחלטה סופית?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">ברוב המקרים, הודעות "סופיות" אלו נשלחות אוטומטית ע"י המערכת. הערוצים המקצועיים שלנו מאפשרים להעביר את המקרה שלך לבדיקה אנושית אמיתית - שם אפשר לבטל את ההחלטה ולהחזיר את החשבון.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>האם התוכן והעוקבים שלי יישמרו?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">כן. בתהליך השחזור שלנו, כל התוכן, העוקבים, ההודעות והנתונים נשמרים במלואם. החשבון חוזר בדיוק כפי שהיה לפני החסימה או ההשבתה.</div>
       </div>
     </div>
   </div>
@@ -1656,18 +1711,18 @@
 <section class="cta-final" id="contact">
   <div class="container">
     <div class="cta-box">
-      <div class="cta-tagline">⏱️ כל שעה חשובה: עכבו את מחיקת המידע הקבוע מהשרתים</div>
-      <h2>בואו נחזיר את החשבון שלכם כבר היום</h2>
-      <p>צרו קשר עכשיו לבדיקת היתכנות מקצועית מיידית וללא כל התחייבות.</p>
+      <div class="cta-tagline">כל שעה שעוברת מגדילה את הסיכון לאובדן תוכן</div>
+      <h2>אל תחכו - דברו איתנו עכשיו</h2>
+      <p>שלחו לנו הודעה בוואטסאפ ותוך דקות נציג שירות יבדוק את המקרה שלכם - בחינם וללא כל התחייבות.</p>
       
       <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99" class="btn-wa" style="font-size:1.15rem; padding: 20px 48px;">
-        פנייה מהירה בוואטסאפ של מרכז השירות
+        שלחו הודעה בוואטסאפ - בדיקה חינם
       </a>
 
       <div class="cta-meta-badge">
         <span>🛡️ בדיקה ללא התחייבות</span>
-        <span>⚡ מענה אנושי מהיר</span>
-        <span>🔒 הגנה מלאה על הפרטיות</span>
+        <span>⚡ מענה תוך דקות</span>
+        <span>🔒 דיסקרטיות מלאה</span>
       </div>
     </div>
   </div>
@@ -1680,35 +1735,36 @@
       <a href="#" class="logo-container">
         <span class="logo-text">Insta<span>Rescue</span></span>
       </a>
-      <p>המרכז המקצועי לאבטחה ושחזור נוכחות דיגיטלית ברשתות החברתיות. מומחיות ודיסקרטיות מוכחת.</p>
+      <p>המרכז המקצועי לשחזור חשבונות מדיה חברתית. מומחיות, דיסקרטיות ותוצאות מוכחות.</p>
       <p style="font-size: 0.72rem; margin-top: 8px; color: var(--text-secondary); opacity: 0.85;">* הבהרה: שירות זה הינו עצמאי ואינו מטעם, ממומן או מאושר על ידי חברת מטא (Meta Platforms, Inc), אינסטגרם או פייסבוק.</p>
     </div>
     <div>
       <h4>שירותים</h4>
       <ul>
+        <li><a href="#services">שחזור מהשבתות וחסימות</a></li>
         <li><a href="#services">שחזור מפריצות</a></li>
-        <li><a href="#services">פתיחת חסימות</a></li>
         <li><a href="#services">שחזור נכסים עסקיים</a></li>
       </ul>
     </div>
     <div>
       <h4>מידע וניווט</h4>
       <ul>
-        <li><a href="#expertise">המומחיות שלנו</a></li>
-        <li><a href="#testimonials">הוכחות חברתיות</a></li>
+        <li><a href="#founder">אודות</a></li>
+        <li><a href="#testimonials">לקוחות ממליצים</a></li>
+        <li><a href="hashbata-instagram.html">מדריך: השבתת חשבון אינסטגרם</a></li>
         <li><a href="#faq">שאלות נפוצות</a></li>
       </ul>
     </div>
     <div>
       <h4>יצירת קשר</h4>
       <ul>
-        <li><a href="tel:+972502843811">📞 050-2843811</a></li>
-        <li><a href="https://wa.me/972502843811" target="_blank" rel="noopener">💬 וואטסאפ מהיר</a></li>
+        <li><a href="tel:+972502843811">050-284-3811</a></li>
+        <li><a href="https://wa.me/972502843811" target="_blank" rel="noopener">וואטסאפ מהיר</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 InstaRescue. כל הזכויות שמורות.</span>
+    <span>&copy; 2026 InstaRescue. כל הזכויות שמורות.</span>
     <div>
       <a href="#">מדיניות פרטיות</a>
       <a href="#">תנאי שימוש</a>
@@ -1716,7 +1772,7 @@
   </div>
 </footer>
 
-<!-- FLOAT BRANDED BUTTON -->
+<!-- FLOAT WHATSAPP BUTTON -->
 <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <div class="wa-float-pulse"></div>
   <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
@@ -1746,7 +1802,7 @@
   });
 
   // Reveal elements dynamically on scroll
-  const scrollElements = document.querySelectorAll('.service-card, .exp-item, .wa-chat-card, .step');
+  const scrollElements = document.querySelectorAll('.service-card, .exp-item, .wa-chat-card, .step, .stat-item');
   
   const elementInView = (el, dividend = 1) => {
     const elementTop = el.getBoundingClientRect().top;

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>השבתת חשבון אינסטגרם - למה זה קורה ואיך מטפלים בזה | InstaRescue</title>
+<meta name="description" content="החשבון שלך באינסטגרם הושבת? למד למה Meta משביתה חשבונות, מהן הסיבות הנפוצות, ואיך ניתן לשחזר חשבון אינסטגרם שהושבת. מדריך מקיף מאת מומחי InstaRescue." />
+<meta name="keywords" content="השבתת חשבון אינסטגרם, חשבון אינסטגרם הושבת, שחזור חשבון אינסטגרם, חסימת אינסטגרם, ערעור אינסטגרם, חשבון מושבת, פתרון חסימה" />
+<meta property="og:title" content="השבתת חשבון אינסטגרם - למה זה קורה ואיך מטפלים בזה" />
+<meta property="og:description" content="מדריך מקיף: הסיבות להשבתת חשבונות אינסטגרם, מה אפשר לעשות, ואיך מומחים יכולים לעזור לשחזר את החשבון שלך." />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://instarescue.vercel.app/hashbata-instagram.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --surface2: #f0f2f5;
+    --border: #e4e6eb;
+    --border-hover: #ccd0d5;
+    --meta-blue: #1877F2;
+    --meta-blue-hover: #166fe5;
+    --meta-blue-light: #e7f3ff;
+    --text-primary: #1c1e21;
+    --text-secondary: #65676b;
+    --gradient-meta: linear-gradient(135deg, #1877F2 0%, #0064E0 100%);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(24, 119, 242, 0.08);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.06);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 64px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    color: var(--meta-blue);
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+  }
+
+  .logo-text span { color: var(--meta-blue); }
+
+  .partner-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--meta-blue-light);
+    color: var(--meta-blue);
+    border: 1px solid rgba(24, 119, 242, 0.25);
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  nav ul a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--meta-blue); }
+
+  .nav-cta {
+    background: var(--gradient-meta);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s, transform 0.2s !important;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+  }
+
+  /* ARTICLE HERO */
+  .article-hero {
+    padding: 160px 24px 80px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 40%, rgba(24, 119, 242, 0.07) 0%, transparent 60%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .article-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .breadcrumb a {
+    color: var(--meta-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .article-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-hero h1 .highlight-blue {
+    color: var(--meta-blue);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 2;
+  }
+
+  .article-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .article-hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ARTICLE CONTENT */
+  .article-content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  .article-content h2 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin: 48px 0 16px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--meta-blue-light);
+  }
+
+  .article-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 32px 0 12px;
+    color: var(--text-primary);
+  }
+
+  .article-content p {
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .article-content ul, .article-content ol {
+    padding-right: 24px;
+    margin-bottom: 24px;
+  }
+
+  .article-content li {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .article-content strong {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  /* INFO BOX / CALLOUT */
+  .info-box {
+    background: var(--meta-blue-light);
+    border: 1px solid rgba(24, 119, 242, 0.2);
+    border-right: 4px solid var(--meta-blue);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .info-box h4 {
+    color: var(--meta-blue);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-box p {
+    color: var(--text-primary) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+  }
+
+  .warning-box {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-right: 4px solid #ffa000;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .warning-box h4 {
+    color: #e65100;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .warning-box p {
+    color: var(--text-primary) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+  }
+
+  /* REASONS GRID */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0 32px;
+  }
+
+  .reason-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .reason-card:hover {
+    border-color: var(--meta-blue);
+    box-shadow: var(--shadow-md);
+  }
+
+  .reason-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--meta-blue-light);
+    color: var(--meta-blue);
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .reason-card h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .reason-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+  }
+
+  /* INLINE CTA */
+  .inline-cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 48px 0;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inline-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-meta);
+  }
+
+  .inline-cta h3 {
+    font-size: 1.4rem !important;
+    font-weight: 800;
+    margin-bottom: 12px !important;
+    color: var(--text-primary);
+  }
+
+  .inline-cta p {
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 24px !important;
+    font-size: 1rem !important;
+  }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: var(--gradient-meta);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    box-shadow: 0 8px 24px rgba(24, 119, 242, 0.25);
+  }
+
+  .btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(24, 119, 242, 0.35);
+    opacity: 0.95;
+  }
+
+  .cta-badges {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  /* STEPS FLOW */
+  .steps-flow {
+    margin: 32px 0;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .step-item:hover {
+    border-color: var(--border-hover);
+  }
+
+  .step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gradient-meta);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .step-text h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+
+  .step-text p {
+    font-size: 0.92rem !important;
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+  }
+
+  .toc h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 16px !important;
+    margin-top: 0 !important;
+  }
+
+  .toc ol {
+    padding-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .toc li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  .toc a {
+    color: var(--meta-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 48px 24px 32px;
+  }
+
+  .footer-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-inner p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .footer-inner a {
+    color: var(--meta-blue);
+    text-decoration: none;
+  }
+
+  .footer-inner a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.72rem !important;
+    opacity: 0.75;
+    margin-top: 16px;
+  }
+
+  /* FLOAT WHATSAPP */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    z-index: 200;
+    transition: transform 0.2s;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .wa-float:hover { transform: scale(1.08); }
+
+  .wa-float-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.25);
+    animation: waPulse 2s infinite;
+  }
+
+  @keyframes waPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; }
+    .reasons-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 576px) {
+    .inline-cta { padding: 32px 20px; }
+    .article-meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+
+<!-- Schema.org Article Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "השבתת חשבון אינסטגרם - למה זה קורה ואיך מטפלים בזה",
+  "description": "מדריך מקיף: הסיבות להשבתת חשבונות אינסטגרם, מה אפשר לעשות, ואיך מומחים יכולים לעזור לשחזר את החשבון שלך.",
+  "author": {
+    "@type": "Person",
+    "name": "בר ליאון",
+    "jobTitle": "מנכ״ל ומייסד InstaRescue"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "InstaRescue"
+  },
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-23",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://instarescue.vercel.app/hashbata-instagram.html"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo-container">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M16.63 7c-1.63 0-3.11.83-4.14 2.1A6.74 6.74 0 0 0 8.35 7C5.39 7 3 9.4 3 12.37c0 2.97 2.39 5.38 5.35 5.38 1.63 0 3.12-.84 4.14-2.11a6.74 6.74 0 0 0 4.14 2.11c2.96 0 5.36-2.4 5.36-5.38C22 9.4 19.6 7 16.63 7zm-8.28 9.07c-1.99 0-3.6-1.66-3.6-3.7 0-2.04 1.61-3.7 3.6-3.7 1.25 0 2.38.65 3.05 1.67a5.04 5.04 0 0 1-3.05 5.73zm8.28 0c-1.25 0-2.38-.65-3.05-1.67a5.04 5.04 0 0 1 3.05-5.73c1.99 0 3.6 1.66 3.6 3.7 0 2.04-1.61 3.7-3.6 3.7z"/>
+      </svg>
+    </div>
+    <span class="logo-text">Insta<span>Rescue</span></span>
+    <span class="partner-badge">Security Support</span>
+  </a>
+  <ul>
+    <li><a href="index.html">עמוד ראשי</a></li>
+    <li><a href="index.html#services">שירותי שחזור</a></li>
+    <li><a href="index.html#testimonials">לקוחות ממליצים</a></li>
+  </ul>
+  <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9B%D7%AA%D7%91%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%91%D7%AA%D7%95%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="nav-cta" target="_blank" rel="noopener">
+    בדיקת זכאות חינם
+  </a>
+</nav>
+
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="breadcrumb">
+    <a href="index.html">InstaRescue</a>
+    <span>›</span>
+    <span>מדריכים</span>
+    <span>›</span>
+    <span>השבתת חשבון אינסטגרם</span>
+  </div>
+  <h1>
+    השבתת חשבון אינסטגרם:<br/>
+    <span class="highlight-blue">למה זה קורה ואיך מטפלים בזה</span>
+  </h1>
+  <div class="article-meta">
+    <span>✍️ מאת: בר ליאון, מייסד InstaRescue</span>
+    <span>📅 עודכן לאחרונה: יוני 2026</span>
+    <span>⏱️ 8 דקות קריאה</span>
+  </div>
+  <p class="article-hero-sub">
+    כל מה שצריך לדעת על השבתות חשבונות באינסטגרם - הסיבות, הפתרונות, ומתי כדאי לפנות לעזרה מקצועית.
+  </p>
+</header>
+
+<!-- ARTICLE CONTENT -->
+<main class="article-content">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h3>תוכן עניינים</h3>
+    <ol>
+      <li><a href="#what-is">מה זה בעצם השבתת חשבון אינסטגרם?</a></li>
+      <li><a href="#reasons">הסיבות הנפוצות להשבתת חשבון</a></li>
+      <li><a href="#signs">איך יודעים שהחשבון הושבת</a></li>
+      <li><a href="#self-fix">מה אפשר לעשות לבד</a></li>
+      <li><a href="#limitations">למה הערעור לא תמיד עובד</a></li>
+      <li><a href="#professional">מתי צריך עזרה מקצועית</a></li>
+      <li><a href="#prevention">איך למנוע השבתה בעתיד</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2 id="what-is">מה זה בעצם השבתת חשבון אינסטגרם?</h2>
+  <p>
+    השבתת חשבון אינסטגרם היא פעולה שבה Meta (החברה שמפעילה את אינסטגרם) מחליטה להשבית חשבון משתמש באופן חד צדדי. כשהחשבון מושבת, המשתמש מאבד גישה מלאה לחשבון - הוא לא יכול להתחבר, העמוד נעלם מתוצאות החיפוש, וכל התוכן (פוסטים, סטוריז, רילסים, הודעות) הופך ללא נגיש.
+  </p>
+  <p>
+    חשוב להבחין בין <strong>השבתה</strong> (disabled) לבין <strong>חסימה זמנית</strong> (temporary ban). בחסימה זמנית, בדרך כלל תקבלו הודעה עם מועד שבו תוכלו לחזור להשתמש בחשבון. בהשבתה - ההודעה בדרך כלל אומרת שהחשבון "הופסק" או "הושבת" ללא תאריך חזרה ברור.
+  </p>
+
+  <div class="info-box">
+    <h4>💡 חשוב לדעת</h4>
+    <p>גם כשכתוב שההחלטה "סופית" - ברוב המקרים מדובר בהודעה אוטומטית שנשלחת על ידי המערכת. באמצעות ערוצי תמיכה מקצועיים, לעיתים קרובות אפשר להגיע לנציג אנושי שיבחן את המקרה מחדש.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 id="reasons">הסיבות הנפוצות להשבתת חשבון אינסטגרם</h2>
+  <p>
+    ישנן מספר סיבות עיקריות שבגללן Meta משביתה חשבונות. חלקן הן סיבות לגיטימיות, אבל במקרים רבים ההשבתה קורית בטעות או בגלל דיווחים כוזבים. הנה הסיבות הנפוצות ביותר:
+  </p>
+
+  <div class="reasons-grid">
+    <div class="reason-card">
+      <div class="reason-num">1</div>
+      <h4>הפרת תנאי שימוש</h4>
+      <p>פרסום תוכן שמפר את הנחיות הקהילה של אינסטגרם - גם אם זה נעשה בטעות או ללא כוונה. לפעמים תוכן לגיטימי נתפס בטעות כמפר.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num">2</div>
+      <h4>דיווחים כוזבים</h4>
+      <p>מתחרים או גורמים עוינים שמדווחים על החשבון שלך באופן מסיבי. המערכת האוטומטית עלולה להשבית את החשבון בעקבות ריבוי דיווחים.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num">3</div>
+      <h4>חשד להתחזות</h4>
+      <p>אם מישהו טוען שאתם מתחזים לאדם אחר, או אם השם בחשבון לא תואם את שמכם האמיתי, Meta עלולה להשבית את החשבון.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num">4</div>
+      <h4>פעילות חשודה אוטומטית</h4>
+      <p>שימוש בכלים של צד שלישי, בוטים לעוקבים, או פעולות מהירות מדי (לייקים, תגובות, עקיבות) - יכולים לגרום למערכת לחשוב שמדובר בבוט.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num">5</div>
+      <h4>פריצה והשתלטות</h4>
+      <p>כשפורץ משתלט על החשבון ומשנה את פרטי ההתקשרות. לפעמים הפורץ עצמו גורם להשבתה, או שהמשתמש המקורי מדווח והמערכת משביתה.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-num">6</div>
+      <h4>בעיית אימות גיל</h4>
+      <p>אם המערכת מזהה שהמשתמש עשוי להיות מתחת לגיל 13, או שיש חוסר התאמה בנתוני הגיל, החשבון עלול להיחסם עד לאימות.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h4>⚠️ שימו לב</h4>
+    <p>במקרים רבים, ההשבתה קורית בגלל <strong>שגיאה של המערכת האוטומטית</strong>. אלגוריתמים של בינה מלאכותית סורקים מיליארדי פעולות ביום, ולעיתים קרובות הם טועים ומשביתים חשבונות לגיטימיים בטעות. זו אחת הסיבות שבגללן ערעור עצמאי לא תמיד מספיק.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2 id="signs">איך יודעים שהחשבון הושבת</h2>
+  <p>
+    ישנם מספר סימנים שמצביעים על כך שחשבון האינסטגרם שלך הושבת:
+  </p>
+  <ul>
+    <li><strong>לא מצליחים להתחבר</strong> - מופיעה הודעה שהחשבון הופסק או הושבת כשמנסים להיכנס</li>
+    <li><strong>העמוד נעלם מהחיפוש</strong> - אנשים אחרים לא מוצאים את הפרופיל שלך כשהם מחפשים</li>
+    <li><strong>הודעת מייל מ-Meta</strong> - לפעמים תקבלו הודעה על הפרת תנאי שימוש למייל שקשור לחשבון</li>
+    <li><strong>כתוב "User not found"</strong> - כשמנסים לגשת ישירות לכתובת הפרופיל</li>
+    <li><strong>לא ניתן לאפס סיסמה</strong> - מנגנון שחזור הסיסמה לא עובד כמו שצריך</li>
+  </ul>
+
+  <!-- FIRST CTA -->
+  <div class="inline-cta">
+    <h3>החשבון שלך הושבת ואתה לא יודע מה לעשות?</h3>
+    <p>אל תחכה - שלח לנו הודעה בוואטסאפ ונציג שלנו יבדוק את המקרה שלך תוך דקות, בחינם וללא התחייבות.</p>
+    <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%94%D7%95%D7%A9%D7%91%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa" target="_blank" rel="noopener">
+      דברו איתנו בוואטסאפ - בדיקה חינם
+    </a>
+    <div class="cta-badges">
+      <span>🛡️ בדיקה ללא התחייבות</span>
+      <span>⚡ מענה תוך דקות</span>
+      <span>🔒 דיסקרטיות מלאה</span>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 id="self-fix">מה אפשר לעשות לבד</h2>
+  <p>
+    אם החשבון שלך הושבת, יש מספר צעדים שאפשר לנסות בעצמך לפני שפונים לעזרה מקצועית:
+  </p>
+
+  <div class="steps-flow">
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <div class="step-text">
+        <h4>בדקו את המייל שלכם</h4>
+        <p>חפשו הודעות מ-Meta או Instagram בתיבת הדואר (כולל בתיקיית הספאם). לפעמים יש שם קישור ישיר להגשת ערעור או מידע על הסיבה להשבתה.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <div class="step-text">
+        <h4>נסו להגיש ערעור דרך האפליקציה</h4>
+        <p>פתחו את אפליקציית אינסטגרם, נסו להתחבר, ואם מופיע כפתור "Appeal" או "ערעור" - לחצו עליו ומלאו את הפרטים הנדרשים. צרפו תעודת זהות אם נדרש.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <div class="step-text">
+        <h4>הגישו טופס ערעור באתר Meta</h4>
+        <p>היכנסו לדף העזרה הרשמי של אינסטגרם ומלאו את טופס הערעור על השבתת חשבון. ציינו את שם המשתמש, כתובת המייל שקשורה לחשבון, והסבירו מדוע לדעתכם ההשבתה שגויה.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-number">4</div>
+      <div class="step-text">
+        <h4>המתינו עד 48 שעות</h4>
+        <p>לאחר הגשת ערעור, המתינו. בחלק מהמקרים התשובה מגיעה תוך שעות, ובחלק היא יכולה לקחת מספר ימים. אל תגישו ערעורים חוזרים ברצף - זה עלול לפגוע.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2 id="limitations">למה הערעור לא תמיד עובד</h2>
+  <p>
+    הבעיה המרכזית עם תהליך הערעור הרגיל היא שב<strong>רוב המקרים, הערעור שלך נקרא ונבדק על ידי מערכת אוטומטית</strong> - לא על ידי בן אדם. המערכת מחפשת מילות מפתח, בודקת את "ציון הסיכון" של החשבון שלך, ומחליטה תוך שניות. אם ההחלטה של האלגוריתם היא לדחות - תקבלו תשובה אוטומטית שההחלטה סופית.
+  </p>
+  <p>
+    זו הסיבה שאנשים רבים מגישים ערעור אחרי ערעור ומקבלים את אותה תשובה מתסכלת:
+  </p>
+  <ul>
+    <li>"בדקנו את החשבון שלך ומצאנו שהוא מפר את תנאי השימוש"</li>
+    <li>"ההחלטה שלנו סופית ולא ניתנת לערעור"</li>
+    <li>"לא ניתן לשחזר חשבון שהושבת"</li>
+  </ul>
+  <p>
+    <strong>אבל האמת היא שבמרבית המקרים, מדובר בתשובה אוטומטית.</strong> כשהמקרה מגיע לנציג אנושי אמיתי במטא - התוצאה יכולה להיות שונה לחלוטין. הבעיה היא להגיע אליו.
+  </p>
+
+  <div class="info-box">
+    <h4>📊 מספרים שחשוב להכיר</h4>
+    <p>לפי הנתונים שלנו, כ-97% מהמקרים שאנחנו מטפלים בהם מסתיימים בהצלחה - כולל מקרים שבהם הלקוח כבר קיבל הודעה שההחלטה "סופית". ההבדל הוא גישה לערוצי תמיכה מקצועיים שמגיעים ישירות לנציג אנושי.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2 id="professional">מתי צריך עזרה מקצועית</h2>
+  <p>
+    ישנם מקרים שבהם ניסיון עצמאי לא יספיק, וכדאי לפנות לגורם מקצועי שיודע לנהל את התהליך מול Meta:
+  </p>
+  <ul>
+    <li><strong>הגשתם ערעור ונדחיתם</strong> - במיוחד אם זה קרה יותר מפעם אחת</li>
+    <li><strong>לא מקבלים מענה</strong> - הגשתם ערעור ולא חזרו אליכם בכלל</li>
+    <li><strong>החשבון קריטי לעסק שלכם</strong> - כל יום שעובר ללא החשבון פוגע בהכנסות</li>
+    <li><strong>יש לכם קהילה גדולה</strong> - אלפי או עשרות אלפי עוקבים שתלויים בחשבון</li>
+    <li><strong>ההשבתה קרתה בגלל דיווחים כוזבים</strong> - אתם יודעים שלא הפרתם שום כלל</li>
+    <li><strong>החשבון נפרץ ואז הושבת</strong> - מצבים מורכבים שדורשים טיפול ייעודי</li>
+  </ul>
+  <p>
+    במקרים כאלה, הגישה הנכונה היא לעבוד דרך ערוצי תמיכה מקצועיים ש<strong>מגיעים ישירות לנציג אנושי</strong> במטא. זה בדיוק מה שאנחנו ב-InstaRescue עושים - ובהצלחה מוכחת של אלפי מקרים.
+  </p>
+
+  <!-- SECOND CTA -->
+  <div class="inline-cta">
+    <h3>ניסיתם לבד ולא הצליח? אנחנו כאן בשבילכם.</h3>
+    <p>הצוות שלנו מתמחה בשחזור חשבונות שהושבתו - גם כשהערעור הרגיל נדחה. שלחו לנו הודעה ונבדוק מה אפשר לעשות.</p>
+    <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A0%D7%99%D7%A1%D7%99%D7%AA%D7%99%20%D7%9C%D7%A2%D7%A8%D7%A2%D7%A8%20%D7%9C%D7%91%D7%93%20%D7%95%D7%A0%D7%93%D7%97%D7%99%D7%AA%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99%D7%AA" class="btn-wa" target="_blank" rel="noopener">
+      בדיקת היתכנות חינם בוואטסאפ
+    </a>
+    <div class="cta-badges">
+      <span>🛡️ 97% הצלחה</span>
+      <span>⚡ טיפול תוך 24 שעות</span>
+      <span>🔒 ללא סיסמאות</span>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2 id="prevention">איך למנוע השבתה בעתיד</h2>
+  <p>
+    אחרי שהחשבון חוזר (או כדי למנוע מצב כזה מלכתחילה), הנה מספר צעדים חשובים:
+  </p>
+
+  <h3>אבטחה בסיסית</h3>
+  <ul>
+    <li><strong>הפעילו אימות דו-שלבי (2FA)</strong> - שימוש באפליקציית מחולל קודים (לא SMS) הוא הדרך הכי בטוחה</li>
+    <li><strong>השתמשו בסיסמה חזקה וייחודית</strong> - אל תשתמשו באותה סיסמה שיש לכם באתרים אחרים</li>
+    <li><strong>עדכנו את פרטי ההתקשרות</strong> - ודאו שהמייל והטלפון שמקושרים לחשבון מעודכנים ונגישים לכם</li>
+  </ul>
+
+  <h3>שמירה על תנאי השימוש</h3>
+  <ul>
+    <li><strong>הימנעו מכלים של צד שלישי</strong> - בוטים, שירותי עוקבים ותוספות לא מורשות עלולים לגרום להשבתה</li>
+    <li><strong>אל תבצעו פעולות מהירות מדי</strong> - הגבלה עצמית על כמות הלייקים, התגובות והעקיבות ביום</li>
+    <li><strong>תכינו גיבוי</strong> - הורידו עותק של הנתונים שלכם מאינסטגרם באופן קבוע</li>
+  </ul>
+
+  <h3>ניטור וזיהוי מוקדם</h3>
+  <ul>
+    <li><strong>שימו לב לאזהרות</strong> - אם קיבלתם אזהרה מאינסטגרם, קחו אותה ברצינות ותקנו את הבעיה</li>
+    <li><strong>בדקו התחברויות חריגות</strong> - הגדרות > אבטחה > פעילות התחברות - ודאו שאין כניסות ממקומות לא מוכרים</li>
+    <li><strong>אל תתעלמו ממיילים מ-Meta</strong> - קראו הודעות רשמיות (ודאו שזה באמת מהם ולא פישינג)</li>
+  </ul>
+
+  <div class="info-box">
+    <h4>🔒 טיפ מקצועי</h4>
+    <p>ב-InstaRescue, חלק מהשירות שלנו כולל הקשחת אבטחה לאחר השחזור. אנחנו לא רק מחזירים את החשבון - אלא גם מוודאים שזה לא יקרה שוב. כל לקוח שמסיים טיפול אצלנו מקבל הנחיות אבטחה מותאמות אישית.</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="inline-cta" style="margin-bottom: 0;">
+    <h3>לסיכום - אל תוותרו על החשבון שלכם</h3>
+    <p>השבתת חשבון אינסטגרם היא מצב קשה, אבל ברוב המקרים ניתן לפתור אותו. אם ניסיתם לבד ולא הצלחתם - אנחנו כאן כדי לעזור.</p>
+    <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9B%D7%AA%D7%91%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%91%D7%AA%D7%95%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%A7%D7%A8%D7%94%20%D7%A9%D7%9C%D7%99" class="btn-wa" target="_blank" rel="noopener">
+      שלחו הודעה בוואטסאפ - בדיקה חינם
+    </a>
+    <div class="cta-badges">
+      <span>🛡️ בדיקה ללא התחייבות</span>
+      <span>⚡ מענה תוך דקות</span>
+      <span>✅ 2,847+ חשבונות שוחזרו</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>
+      <a href="index.html" style="font-weight: 800; font-size: 1.1rem;">Insta<span style="color: var(--meta-blue);">Rescue</span></a>
+    </p>
+    <p>המרכז המקצועי לשחזור חשבונות מדיה חברתית</p>
+    <p>
+      <a href="index.html">עמוד ראשי</a> · 
+      <a href="index.html#services">שירותי שחזור</a> · 
+      <a href="index.html#testimonials">לקוחות ממליצים</a> · 
+      <a href="https://wa.me/972502843811" target="_blank" rel="noopener">וואטסאפ מהיר</a> · 
+      <a href="tel:+972502843811">050-284-3811</a>
+    </p>
+    <p class="footer-disclaimer">* הבהרה: שירות זה הינו עצמאי ואינו מטעם, ממומן או מאושר על ידי חברת מטא (Meta Platforms, Inc), אינסטגרם או פייסבוק.</p>
+    <p>&copy; 2026 InstaRescue. כל הזכויות שמורות.</p>
+  </div>
+</footer>
+
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9B%D7%AA%D7%91%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%91%D7%AA%D7%95%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <div class="wa-float-pulse"></div>
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+    <path d="M12.004 2c-5.51 0-9.99 4.479-9.99 9.99 0 1.954.563 3.775 1.534 5.314l-1.011 3.689 3.791-.994c1.478.897 3.208 1.415 5.061 1.415 5.51 0 9.99-4.479 9.99-9.99S17.514 2 12.004 2zm5.82 13.918c-.244.689-1.22 1.256-1.748 1.341-.482.079-1.111.144-3.238-.737-2.716-1.127-4.46-3.9-4.595-4.081-.136-.181-1.1-1.464-1.1-2.793 0-1.329.697-1.983.945-2.254.248-.271.545-.339.727-.339.182 0 .364.004.521.012.164.008.384-.062.602.463.224.537.766 1.868.832 2.002.066.134.11.291.021.471-.089.18-.134.292-.266.446-.131.155-.276.347-.393.466-.131.134-.268.281-.116.541.153.26.677 1.114 1.455 1.807.998.89 1.839 1.166 2.102 1.296.264.13.418.109.574-.072.157-.181.677-.788.859-1.059.182-.271.364-.226.615-.135.252.091 1.599.754 1.872.89.273.136.455.203.521.319.066.115.066.67-.178 1.359z"/>
+  </svg>
+</a>
+
+</body>
+</html>

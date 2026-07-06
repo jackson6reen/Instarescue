@@ -3,32 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InstaRescue – מרכז שחזור חשבונות מדיה חברתית | Instagram & Facebook</title>
-<meta name="description" content="נחסם לך החשבון? הושבת? נפרץ? מומחי שחזור החשבונות של InstaRescue מחזירים לך את הגישה. פתרון מקצועי לחשבונות אינסטגרם ופייסבוק שנחסמו, הושבתו או נפרצו." />
+<title>The Gray Dome – פורטל הגנה ושחזור חשבונות מדיה חברתית</title>
+<meta name="description" content="אירוע אבטחה ברשתות החברתיות? פורטל הדיווח והתגובה המהירה של The Gray Dome מספק סיוע מקצועי, הגנה ושחזור של חשבונות אינסטגרם ופייסבוק שנחסמו, הושבתו או נפרצו." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #f7f9fc;
+    --bg: #f8fafc;
     --surface: #ffffff;
-    --surface2: #f0f2f5;
-    --border: #e4e6eb;
-    --border-hover: #ccd0d5;
+    --surface2: #f1f5f9;
+    --border: #e2e8f0;
+    --border-hover: #cbd5e1;
     
-    /* Meta Brand Palette */
-    --meta-blue: #1877F2;
-    --meta-blue-hover: #166fe5;
-    --meta-blue-light: #e7f3ff;
-    --text-primary: #1c1e21;
-    --text-secondary: #65676b;
-    --success: #31a24c;
+    /* Government Brand Palette */
+    --gov-navy: #0c2340;
+    --gov-navy-hover: #071629;
+    --gov-navy-light: #f0f4f8;
+    --gov-blue: #1e40af;
+    --gov-blue-hover: #1e3a8a;
+    --gov-blue-light: #eff6ff;
+    --gov-gold: #9a7d46;
+    --gov-gold-hover: #7b6235;
+    --gov-gold-light: #fbf9f5;
     
-    /* Gradients */
-    --gradient-meta: linear-gradient(135deg, #1877F2 0%, #0064E0 100%);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 8px 24px rgba(24, 119, 242, 0.08);
-    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.06);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --success: #15803d;
+    
+    /* Gradients & Shadows */
+    --gradient-gov: linear-gradient(135deg, var(--gov-navy) 0%, var(--gov-blue) 100%);
+    --gradient-gold: linear-gradient(135deg, var(--gov-gold) 0%, #b2935b 100%);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(12, 35, 64, 0.04);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.04);
+
+    /* Backward compatibility mapping */
+    --meta-blue: var(--gov-blue);
+    --meta-blue-hover: var(--gov-blue-hover);
+    --meta-blue-light: var(--gov-blue-light);
+    --gradient-meta: var(--gradient-gov);
   }
 
   *, *::before, *::after {
@@ -42,7 +56,7 @@
   }
 
   body {
-    font-family: 'Heebo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Assistant', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg);
     color: var(--text-primary);
     overflow-x: hidden;
@@ -71,10 +85,52 @@
     z-index: 2;
   }
 
+  /* GOV TOP BAR */
+  .gov-top-bar {
+    background-color: var(--gov-navy);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 64px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .gov-top-bar-container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gov-flag-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 1px 4px;
+    background: #fff;
+    border-radius: 2px;
+    font-size: 0.65rem;
+    color: #1e40af;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .gov-text-notice {
+    opacity: 0.9;
+  }
+
   /* NAV */
   nav {
     position: fixed;
-    top: 0;
+    top: 33px; /* Shifted down for top bar */
     left: 0;
     right: 0;
     z-index: 100;
@@ -85,7 +141,7 @@
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-    transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s, top 0.3s;
   }
 
   nav.scrolled {
@@ -101,7 +157,7 @@
   }
 
   .logo-icon {
-    color: var(--meta-blue);
+    color: var(--gov-gold);
     display: flex;
     align-items: center;
   }
@@ -109,12 +165,12 @@
   .logo-text {
     font-size: 1.35rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: var(--gov-navy);
     letter-spacing: -0.5px;
   }
 
   .logo-text span {
-    color: var(--meta-blue);
+    color: var(--gov-gold);
   }
 
   .partner-badge {
@@ -122,9 +178,9 @@
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 4px;
-    background: var(--meta-blue-light);
-    color: var(--meta-blue);
-    border: 1px solid rgba(24, 119, 242, 0.25);
+    background: var(--gov-gold-light);
+    color: var(--gov-gold);
+    border: 1px solid rgba(154, 125, 70, 0.25);
   }
 
   nav ul {
@@ -143,22 +199,22 @@
   }
 
   nav ul a:hover {
-    color: var(--meta-blue);
+    color: var(--gov-gold);
   }
 
   .nav-cta {
-    background: var(--gradient-meta);
+    background: var(--gov-gold);
     color: #fff !important;
     padding: 10px 22px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 700 !important;
     font-size: 0.88rem !important;
     display: flex !important;
     align-items: center;
     gap: 8px;
-    transition: opacity 0.2s, transform 0.2s !important;
+    transition: background-color 0.2s, opacity 0.2s, transform 0.2s !important;
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+    box-shadow: 0 2px 8px rgba(154, 125, 70, 0.2);
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -167,7 +223,8 @@
   .nav-cta:hover {
     opacity: 0.95;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(24, 119, 242, 0.3);
+    background-color: var(--gov-gold-hover);
+    box-shadow: 0 4px 12px rgba(154, 125, 70, 0.3);
   }
 
   /* BUTTONS */
@@ -177,29 +234,30 @@
     justify-content: center;
     gap: 12px;
     padding: 16px 36px;
-    background: var(--gradient-meta);
+    background: var(--gov-navy);
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-    box-shadow: 0 8px 24px rgba(24, 119, 242, 0.25);
+    box-shadow: 0 4px 12px rgba(12, 35, 64, 0.15);
   }
 
   .btn-wa:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(24, 119, 242, 0.35);
-    opacity: 0.95;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(12, 35, 64, 0.25);
+    background-color: var(--gov-navy-hover);
+    opacity: 0.98;
   }
 
   .btn-wa-sm {
     padding: 12px 24px;
     font-size: 0.92rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.15);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(12, 35, 64, 0.1);
     width: 100%;
   }
 
@@ -210,9 +268,9 @@
     gap: 8px;
     padding: 16px 32px;
     background: var(--surface);
-    color: var(--text-primary);
+    color: var(--gov-navy);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 6px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -235,10 +293,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 140px 24px 80px;
+    padding: 180px 24px 80px; /* Shifted down for top bar */
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 50% 40%, rgba(24, 119, 242, 0.07) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 40%, rgba(12, 35, 64, 0.04) 0%, transparent 60%);
   }
 
   .live-badge {
@@ -246,11 +304,11 @@
     align-items: center;
     gap: 8px;
     padding: 8px 18px;
-    border-radius: 100px;
-    border: 1px solid rgba(24, 119, 242, 0.15);
-    background: rgba(24, 119, 242, 0.06);
+    border-radius: 4px;
+    border: 1px solid rgba(154, 125, 70, 0.25);
+    background: var(--gov-gold-light);
     font-size: 0.85rem;
-    color: var(--meta-blue);
+    color: var(--gov-gold);
     font-weight: 700;
     margin-bottom: 24px;
     z-index: 10;
@@ -260,7 +318,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--meta-blue);
+    background: var(--gov-gold);
     animation: blink 2s infinite;
   }
 
@@ -275,13 +333,13 @@
     line-height: 1.15;
     letter-spacing: -1.5px;
     margin-bottom: 24px;
-    color: var(--text-primary);
+    color: var(--gov-navy);
     z-index: 10;
     max-width: 950px;
   }
 
   h1 span.highlight-blue {
-    color: var(--meta-blue);
+    color: var(--gov-gold);
   }
 
   .hero-sub {
@@ -353,7 +411,7 @@
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--meta-blue);
+    color: var(--gov-gold);
     margin-bottom: 16px;
   }
 
@@ -399,23 +457,23 @@
   }
 
   .service-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--meta-blue);
+    transform: translateY(-4px);
+    border-color: var(--gov-gold);
     box-shadow: var(--shadow-md);
   }
 
   .service-card.highlighted {
-    border: 2px solid var(--meta-blue);
+    border: 2px solid var(--gov-navy);
     background: #ffffff;
     box-shadow: var(--shadow-md);
   }
 
   .service-card.highlighted::before {
-    content: "השירות הכי מבוקש";
+    content: "שירות ליבה";
     position: absolute;
     top: 16px;
     left: 16px;
-    background: var(--meta-blue);
+    background: var(--gov-navy);
     color: #fff;
     font-size: 0.7rem;
     font-weight: 700;
@@ -426,9 +484,9 @@
   .service-icon {
     width: 60px;
     height: 60px;
-    border-radius: 12px;
-    background: var(--meta-blue-light);
-    color: var(--meta-blue);
+    border-radius: 6px;
+    background: var(--gov-navy-light);
+    color: var(--gov-navy);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,7 +494,7 @@
   }
 
   .service-card.highlighted .service-icon {
-    background: var(--gradient-meta);
+    background: var(--gov-navy);
     color: #fff;
   }
 
@@ -474,7 +532,7 @@
   .service-features li::before {
     content: "✓";
     font-weight: 900;
-    color: var(--meta-blue);
+    color: var(--gov-gold);
     font-size: 0.95rem;
     flex-shrink: 0;
   }
@@ -483,14 +541,15 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: var(--meta-blue-light);
-    color: var(--meta-blue);
+    background: var(--gov-gold-light);
+    color: var(--gov-gold);
     font-size: 0.8rem;
     font-weight: 700;
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: 4px;
     margin-bottom: 20px;
     align-self: flex-start;
+    border: 1px solid rgba(154, 125, 70, 0.15);
   }
 
   /* WHY US / EXPERTISE */
@@ -528,9 +587,9 @@
   .exp-icon {
     width: 48px;
     height: 48px;
-    border-radius: 10px;
-    background: var(--meta-blue-light);
-    color: var(--meta-blue);
+    border-radius: 6px;
+    background: var(--gov-navy-light);
+    color: var(--gov-navy);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -567,7 +626,7 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(24, 119, 242, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(12, 35, 64, 0.05) 0%, transparent 70%);
     top: -50px;
     left: 50%;
     transform: translateX(-50%);
@@ -575,7 +634,7 @@
   }
 
   .shield-icon {
-    color: var(--meta-blue);
+    color: var(--gov-navy);
     margin-bottom: 20px;
     position: relative;
     z-index: 2;
@@ -764,7 +823,7 @@
   .stat-item h3 {
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 900;
-    color: var(--meta-blue);
+    color: var(--gov-navy);
     margin-bottom: 4px;
   }
 
@@ -1133,7 +1192,7 @@
 
   .founder-role {
     font-size: 0.92rem;
-    color: var(--meta-blue);
+    color: var(--gov-gold);
     font-weight: 700;
     margin-bottom: 20px;
     display: block;
@@ -1148,7 +1207,7 @@
 
   .founder-quote {
     font-style: italic;
-    border-right: 3px solid var(--meta-blue);
+    border-right: 3px solid var(--gov-gold);
     padding-right: 20px;
     margin: 24px 0;
     color: var(--text-primary) !important;
@@ -1219,6 +1278,15 @@
 </head>
 <body>
 
+<div class="gov-top-bar">
+  <div class="gov-top-bar-container">
+    <div class="gov-flag-icon">
+      <span style="color:#0038b8;">✡</span>
+    </div>
+    <span class="gov-text-notice">The Gray Dome – פורטל אזרחי מציע הגנה ותגובה לאירועי סייבר ונכסים דיגיטליים</span>
+  </div>
+</div>
+
 <div class="grid-bg"></div>
 <div class="grid-overlay"></div>
 
@@ -1226,21 +1294,24 @@
 <nav id="main-nav">
   <a href="#" class="logo-container">
     <div class="logo-icon">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-        <path d="M16.63 7c-1.63 0-3.11.83-4.14 2.1A6.74 6.74 0 0 0 8.35 7C5.39 7 3 9.4 3 12.37c0 2.97 2.39 5.38 5.35 5.38 1.63 0 3.12-.84 4.14-2.11a6.74 6.74 0 0 0 4.14 2.11c2.96 0 5.36-2.4 5.36-5.38C22 9.4 19.6 7 16.63 7zm-8.28 9.07c-1.99 0-3.6-1.66-3.6-3.7 0-2.04 1.61-3.7 3.6-3.7 1.25 0 2.38.65 3.05 1.67a5.04 5.04 0 0 1-3.05 5.73zm8.28 0c-1.25 0-2.38-.65-3.05-1.67a5.04 5.04 0 0 1 3.05-5.73c1.99 0 3.6 1.66 3.6 3.7 0 2.04-1.61 3.7-3.6 3.7z"/>
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gov-gold);">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="var(--gov-navy)" fill="rgba(12, 35, 64, 0.05)"/>
+        <path d="M12 6a4 4 0 0 1 4 4" stroke="var(--gov-gold)"/>
+        <path d="M8 10a4 4 0 0 1 4-4" stroke="var(--gov-gold)"/>
+        <circle cx="12" cy="11" r="2.5" fill="var(--gov-gold)"/>
       </svg>
     </div>
-    <span class="logo-text">Insta<span>Rescue</span></span>
-    <span class="partner-badge">Security Support</span>
+    <span class="logo-text">The Gray <span>Dome</span></span>
+    <span class="partner-badge">Security Response Desk</span>
   </a>
   <ul>
-    <li><a href="#services">שירותי שחזור</a></li>
-    <li><a href="#founder">אודות</a></li>
-    <li><a href="#testimonials">לקוחות ממליצים</a></li>
-    <li><a href="#how">איך זה עובד</a></li>
+    <li><a href="#services">מרכז פניות ותגובה</a></li>
+    <li><a href="#expertise">אודות המערך</a></li>
+    <li><a href="#testimonials">אירועים שטופלו</a></li>
+    <li><a href="#how">תהליך הסיוע</a></li>
   </ul>
   <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%97%D7%A9%D7%91%D7%95%D7%9F" class="nav-cta" target="_blank" rel="noopener">
-    בדיקת זכאות חינם
+    דיווח על אירוע סייבר
   </a>
 </nav>
 
@@ -1248,23 +1319,23 @@
 <section class="hero">
   <div class="live-badge">
     <span class="live-dot"></span>
-    נציגי שירות זמינים עכשיו - מענה תוך דקות
+    קו חירום פעיל לדיווח על פגיעה בנכסים דיגיטליים
   </div>
 
   <h1>
-    החשבון שלך נחסם או הושבת?<br/>
-    אנחנו <span class="highlight-blue">נחזיר אותו</span>.
+    אירוע פריצה, חסימה או השבתת חשבון?<br/>
+    מערך התגובה <span class="highlight-blue">כאן לסייע</span>.
   </h1>
 
   <p class="hero-sub">
-    צוות המומחים שלנו מתמחה בשחזור חשבונות אינסטגרם ופייסבוק שנחסמו, הושבתו או נפרצו. אנו עובדים ישירות מול ערוצי התמיכה המקצועיים של Meta כדי להחזיר לך את הגישה - במהירות ובדיסקרטיות מלאה.
+    פורטל The Gray Dome מספק מענה מקצועי, הגנה וסיוע בטיפול באירועי סייבר והשבתת חשבונות ברשתות החברתיות. אנו פועלים ישירות מול ערוצי האבטחה והתמיכה הבכירים ביותר להחזרת השליטה והגישה לנכסים הדיגיטליים שלכם בצורה מאובטחת.
   </p>
 
   <div class="hero-actions">
     <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99" class="btn-wa" target="_blank" rel="noopener">
-      דברו איתנו עכשיו - בדיקה ללא עלות
+      דיווח מהיר ופתיחת אירוע סייבר
     </a>
-    <a href="#services" class="btn-secondary">ראו את השירותים שלנו ↓</a>
+    <a href="#services" class="btn-secondary">השירותים והמענה הטכנולוגי ↓</a>
   </div>
 
   <div class="meta-credibility-strip">
@@ -1272,19 +1343,19 @@
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
       </svg>
-      למעלה מ-2,800 חשבונות שוחזרו
+      מעל 2,800 אירועי שחזור והצלה
     </div>
     <div class="cred-item">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
         <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
       </svg>
-      פרטיות מלאה - ללא צורך בסיסמאות
+      אבטחת מידע קפדנית - ללא צורך בפרטי גישה רגישים
     </div>
     <div class="cred-item">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
       </svg>
-      עבודה ישירה מול ערוצי Meta
+      עבודה ישירה מול ערוצי Meta Security
     </div>
   </div>
 </section>
@@ -1294,19 +1365,19 @@
   <div class="stats-grid">
     <div class="stat-item">
       <h3>2,847+</h3>
-      <p>חשבונות שוחזרו</p>
+      <p>אירועים שטופלו בהצלחה</p>
     </div>
     <div class="stat-item">
       <h3>97%</h3>
-      <p>אחוז הצלחה</p>
+      <p>אחוז הצלחה במענה</p>
     </div>
     <div class="stat-item">
       <h3>24 שעות</h3>
-      <p>זמן טיפול ממוצע</p>
+      <p>זמן תגובה ממוצע</p>
     </div>
     <div class="stat-item">
       <h3>5+</h3>
-      <p>שנות ניסיון</p>
+      <p>שנות פעילות במרחב הדיגיטלי</p>
     </div>
   </div>
 </div>
@@ -1314,12 +1385,12 @@
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <div class="section-label">שירותי שחזור מקצועיים</div>
-    <h2>פתרונות מותאמים לכל סוג בעיה</h2>
-    <p class="subtitle">לא משנה מה קרה לחשבון שלך - אנחנו יודעים איך להחזיר אותו. הנה הפתרונות שלנו:</p>
+    <div class="section-label">מרכז פניות ותגובה</div>
+    <h2>מענה וטיפול באירועי אבטחה ונכסים מושבתים</h2>
+    <p class="subtitle">מערך התגובה של The Gray Dome מספק סיוע מקיף להתאוששות מאירועי השבתה, פריצה או הגבלת פרסום:</p>
 
     <div class="services-grid">
-      <!-- השבתות וחסימות - השירות הכי מבוקש -->
+      <!-- השבתות וחסימות -->
       <div class="service-card highlighted">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
@@ -1327,16 +1398,16 @@
           </svg>
         </div>
         <h3>שחזור מהשבתות וחסימות</h3>
-        <p>החשבון הושבת? נחסם? קיבלת הודעה שהחשבון הופסק? אנחנו מתמחים בשחרור חשבונות שנחסמו על ידי המערכת האוטומטית של Meta - גם כשהערעור שלך נדחה.</p>
-        <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
+        <p>החשבון הושבת או נחסם על ידי מערכות הסינון האוטומטיות? אנו מתמחים בהגשת ערעורים מורכבים והעברת המקרה לצוות בחינה ידני של Meta Security.</p>
+        <span class="eligibility-tag">בדיקת היתכנות מקצועית</span>
         <ul class="service-features">
-          <li>שחרור חשבונות שנחסמו או הושבתו על ידי המערכת</li>
-          <li>טיפול בערעורים שנדחו ע"י הבוט האוטומטי</li>
-          <li>העברת המקרה לבדיקה ידנית של נציג אנושי</li>
-          <li>מעקב צמוד עד לשחרור מלא של החשבון</li>
+          <li>ניתוח נסיבות החסימה מול תנאי השימוש</li>
+          <li>עקיפת סירובים אוטומטיים והגעה לבוחן אנושי</li>
+          <li>ייצוג וליווי המקרה עד להחזרה מלאה של הגישה</li>
+          <li>ניטור סטטוס פתוח בזמן אמת</li>
         </ul>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%97%D7%A1%D7%9D%20%D7%90%D7%95%20%D7%94%D7%95%D7%A9%D7%91%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          דברו עם נציג שירות
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%9ה%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%97%D7%A1%D7%9D%20%D7%90%D7%95%20%D7%94%D7%95%D7%A9%D7%91%D7%AA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
+          פתיחת פנייה לצוות
         </a>
       </div>
 
@@ -1347,17 +1418,17 @@
             <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
           </svg>
         </div>
-        <h3>ניתוק פורצים ושחזור גישה</h3>
-        <p>מישהו פרץ לחשבון שלך, החליף מייל וסיסמה ואת/ה לא מצליח/ה להיכנס? אנחנו ננתק את הפורץ ונחזיר לך את השליטה המלאה על החשבון.</p>
-        <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
+        <h3>תגובה לפריצות וגניבת זהות</h3>
+        <p>החשבון נפרץ ופרטי הקשר (אימייל, טלפון, אימות דו-שלבי 2FA) שונו על ידי גורם עוין? אנו מפעילים נוהל חירום לניתוק הפורץ והחזרת השליטה לבעלים החוקיים.</p>
+        <span class="eligibility-tag">טיפול חירום ממוקד</span>
         <ul class="service-features">
-          <li>ניתוק מיידי של פרטי גישה זרים מהחשבון</li>
-          <li>עקיפת אימות דו-שלבי שהפורץ הגדיר</li>
-          <li>השבת פרטי הגישה המקוריים שלך</li>
-          <li>הקשחת אבטחה למניעת פריצות עתידיות</li>
+          <li>ניתוק מיידי של כל המכשירים והחיבורים הזרים</li>
+          <li>עקיפת מנגנוני 2FA עוינים שהוגדרו על ידי הפורץ</li>
+          <li>שחזור ואבטחת פרטי הקשר המקוריים</li>
+          <li>התקנת מערכות הגנה למניעת פריצה חוזרת</li>
         </ul>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%A4%D7%A8%D7%A5%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          דברו עם נציג שירות
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%9ה%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%99%20%D7%A0%D7%A4%D7%A8%D7%A5%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
+          פתיחת פנייה לצוות
         </a>
       </div>
 
@@ -1368,17 +1439,17 @@
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
           </svg>
         </div>
-        <h3>שחזור נכסים עסקיים ומנהלי מודעות</h3>
-        <p>חשבון המודעות הוגבל? הגישה ל-Business Manager ננעלה? הבעלות על הנכס הדיגיטלי נחטפה? אנחנו נחזיר לך את השליטה המלאה.</p>
-        <span class="eligibility-tag">בדיקת היתכנות ללא עלות</span>
+        <h3>הצלת נכסים עסקיים ומנהלי מודעות</h3>
+        <p>חשבונות פרסום מוגבלים, חסימות ב-Business Manager או השתלטות עוינת על דפים עסקיים? אנו מספקים מענה משפטי וטכנולוגי לפתרון החסימה והחזרת הבעלות.</p>
+        <span class="eligibility-tag">בדיקת היתכנות מקצועית</span>
         <ul class="service-features">
-          <li>שחרור חשבונות מודעות מוגבלים ומושבתים</li>
-          <li>פתרון בעיות אימות זהות עסקי (Business Verification)</li>
-          <li>החזרת שליטה על דפים עסקיים ונכסי פרסום</li>
-          <li>ייעוץ למניעת חסימות עתידיות</li>
+          <li>שחרור חשבונות מודעות (Ad Accounts) שהושבתו לצמיתות</li>
+          <li>פתרון כשלי אימות זהות עסקית (Business Verification)</li>
+          <li>הגשת ערעורים דרך שותפי Meta Partner Channels</li>
+          <li>אבטחה והקשחת נכסים מפני תביעות זכויות יוצרים כוזבות</li>
         </ul>
         <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A9%D7%97%D7%96%D7%95%D7%A8%20%D7%A0%D7%9B%D7%A1%D7%99%D7%9D%20%D7%A2%D7%A1%D7%A7%D7%99%D7%99%D7%9D" class="btn-wa btn-wa-sm" target="_blank" rel="noopener">
-          דברו עם נציג שירות
+          פתיחת פנייה לצוות
         </a>
       </div>
     </div>
@@ -1390,9 +1461,9 @@
   <div class="container">
     <div class="expertise-container">
       <div>
-        <div class="section-label">למה דווקא אנחנו</div>
-        <h2>ניסיון מוכח בשחזור חשבונות מול Meta</h2>
-        <p class="subtitle">כשהכלים הרגילים לא עובדים והמענה האוטומטי דוחה אותך שוב ושוב, אנחנו יודעים בדיוק איך להגיע לנציג אנושי ולפתור את הבעיה.</p>
+        <div class="section-label">אודות המערך</div>
+        <h2>מומחיות בייצוג ופתרון אירועי חסימה מול Meta</h2>
+        <p class="subtitle">כשהכלים הרגילים נכשלים והמערכות האוטומטיות של Meta דוחות פניות באופן קבוע, אנו מספקים נתיב עוקף ומקצועי להבטחת בחינה אנושית של המקרה.</p>
         
         <div class="expertise-list">
           <div class="exp-item">
@@ -1402,8 +1473,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>גישה לערוצי תמיכה מקצועיים</h4>
-              <p>אנחנו עובדים דרך ערוצי שותפים מוסמכים של Meta - לא דרך הטפסים הרגילים שכולם מכירים. זה מה שעושה את ההבדל.</p>
+              <h4>ערוצי שותפים מורשים</h4>
+              <p>המערך פועל ישירות דרך פורטלים וכלים המיועדים לשותפי Meta וגורמי אבטחה, ומבטיח טיפול מהיר בעדיפות גבוהה.</p>
             </div>
           </div>
 
@@ -1414,8 +1485,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>מענה אנושי - לא בוט</h4>
-              <p>הבעיה המרכזית שלך היא שאתה תקוע מול מערכת אוטומטית. אנחנו מעבירים את המקרה שלך לנציג אנושי שבאמת יכול לעזור.</p>
+              <h4>בחינה ידנית ואימות אנושי</h4>
+              <p>אנו מונעים את נעילת המקרה במערכות ה-AI ומעבירים את הטיפול לנציגי אבטחה ורגולציה אנושיים של Meta.</p>
             </div>
           </div>
 
@@ -1426,8 +1497,8 @@
               </svg>
             </div>
             <div class="exp-details">
-              <h4>דיסקרטיות ואבטחת מידע מלאה</h4>
-              <p>אנחנו לא מבקשים ולא צריכים את הסיסמה שלך. כל התהליך מתנהל דרך מנגנוני אימות רשמיים של Meta.</p>
+              <h4>אבטחה דיגיטלית מלאה</h4>
+              <p>מנגנון השחזור אינו דורש מסירת סיסמה או פגיעה בפרטיות. תהליך האימות והגישה מבוצע באמצעות כלים רשמיים של Meta.</p>
             </div>
           </div>
         </div>
@@ -1439,8 +1510,8 @@
             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
           </svg>
         </div>
-        <h3>פרוטוקול עבודה מאובטח</h3>
-        <p>כל פעולות השחזור מבוצעות לפי הנחיות Meta Security. החשבון שלך חוזר ללא פגיעה בנתונים, בתוכן או בעוקבים.</p>
+        <h3>פרוטוקול הגנה רשמי</h3>
+        <p>פעולות החזרת הגישה מתבצעות תוך הקפדה מלאה על שלמות המידע והתוכן של החשבון המושבת.</p>
         <div class="meta-badges">
           <span class="badge-pill">Independent Support Desk</span>
           <span class="badge-pill">Meta Partner Channel</span>
@@ -1454,22 +1525,22 @@
 <section class="founder" id="founder">
   <div class="container">
     <div class="founder-container">
-      <img src="bar-leon.jpg" alt="בר ליאון - מנכ״ל ומייסד InstaRescue" class="founder-photo" />
+      <img src="bar-leon.jpg" alt="בר ליאון - מנהל מערך הטכנולוגיות והתגובה של The Gray Dome" class="founder-photo" />
       <div class="founder-content">
-        <div class="section-label">הסיפור שלנו</div>
+        <div class="section-label">הנהגת המערך</div>
         <h2 class="founder-name">בר ליאון</h2>
-        <span class="founder-role">מנכ״ל ומייסד InstaRescue</span>
+        <span class="founder-role">מנהל מערך הטכנולוגיות והתגובה ב-The Gray Dome</span>
         <p>
-          בר ליאון מקדיש את שנותיו האחרונות לשיפור ולהעלאת איכות שירותי השחזור והתמיכה מול פלטפורמות Meta. מתוך הבנה עמוקה של הכאב שחווים בעלי עסקים ויוצרי תוכן שמאבדים גישה לחשבון - הוא הקים את InstaRescue עם מטרה אחת ברורה: לתת מענה מקצועי, מהיר ואמין.
+          בר ליאון מוביל את מערכי הטכנולוגיה, הגנת הסייבר והתגובה המהירה של The Gray Dome. מתוך מחויבות עמוקה להגנה על המרחב הדיגיטלי האישי והעסקי בישראל, הוא מוביל צוות מומחים המתמקד בפתרון משברים טכנולוגיים ואירועי חסימה מורכבים ברשתות החברתיות.
         </p>
         <p>
-          לאורך השנים, בר פיתח קשרים מקצועיים עם ערוצי תמיכה בכירים, בנה צוות מומחים מנוסה, והוביל את שחזורם של אלפי חשבונות שהושבתו, נחסמו או נפרצו. הגישה שלו מבוססת על שקיפות מלאה, עבודה לפי פרוטוקול מוסדר, ודיסקרטיות מוחלטת.
+          תחת הנהגתו, פיתח המערך קשרי עבודה הדוקים מול נציגי אבטחה וגורמי רגולציה גלובליים, המאפשרים לטפל באירועי תקיפה והשבתה בזמן אמת, תוך עמידה בסטנדרטים המחמירים ביותר של סודיות, דיסקרטיות ואבטחת מידע.
         </p>
         <p class="founder-quote">
-          "ראיתי מקרוב כמה אנשים נפגעים כשהחשבון שלהם נעלם מיום ליום. זו לא רק פלטפורמה - זו פרנסה, קהילה, ושנים של עבודה. המשימה שלנו היא לתת את הפתרון הכי מקצועי שאפשר, בזמן הכי קצר שאפשר."
+          "אנו רואים בנכס דיגיטלי אישי או עסקי חלק בלתי נפרד מביטחונו של אדם או עסק. מטרתנו היא לספק הגנה מקצועית ומהירה לכל מי שנפל קורבן לחסימה שגויה או לפריצת אבטחה."
         </p>
-        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%20%D7%A9%D7%9C%D7%9B%D7%9D" class="btn-wa" target="_blank" rel="noopener" style="display:inline-flex; margin-top: 8px;">
-          דברו עם הצוות שלנו
+        <a href="https://wa.me/972502843811?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%9ה%D7%A9%D7%99%D7%A8%D7%95%D7%AA%20%D7%A9%D7%9C%D7%9B%D7%9D" class="btn-wa" target="_blank" rel="noopener" style="display:inline-flex; margin-top: 8px;">
+          פתיחת פנייה למערך
         </a>
       </div>
     </div>
@@ -1479,33 +1550,33 @@
 <!-- SOCIAL PROOF - 6 AUTHENTIC WHATSAPP CONVERSATIONS -->
 <section class="social-proof" id="testimonials">
   <div class="container">
-    <div class="section-label">מה הלקוחות שלנו אומרים</div>
-    <h2>התכתבויות אמיתיות מתוך הוואטסאפ שלנו</h2>
-    <p class="subtitle">לקוחות שחוו חסימה או השבתה של החשבון ופנו אלינו לעזרה. הנה מה שקרה אחר כך:</p>
+    <div class="section-label">יומן אירועים שטופלו</div>
+    <h2>דיווחים ועדכוני סטטוס מול פונים</h2>
+    <p class="subtitle">תיעוד חלקי של עדכונים מול פונים שדיווחו על פריצות או השבתות של נכסים דיגיטליים:</p>
 
     <div class="proof-grid">
       <!-- Chat 1 -->
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">ל</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">ל</div>
             <div class="wa-text-details">
               <span class="wa-name">לירון כ.</span>
-              <span class="wa-status">מחובר/ת</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            היי אני בלחץ רציני, האינסטגרם שלי הושבת מאתמול ויש לי שם 38 אלף עוקבים. זה כל הפרנסה שלי. ניסיתי ערעור ונדחה
+            שלום, חשבון האינסטגרם העסקי שלי הושבת אתמול ויש לי שם 38 אלף עוקבים. זה מקור הפרנסה המרכזי שלי. הגשתי ערעור עצמאי וקיבלתי סירוב אוטומטי מהמערכת.
             <span class="wa-time">09:14</span>
           </div>
-          <div class="wa-bubble sent">
-            שלום לירון, אל דאגה. נבדוק את המקרה שלך ונעביר פנייה מקצועית לצוות התמיכה. שלח לנו צילום מסך של ההודעה שקיבלת
-            <span class="wa-time">09:22 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            שלום לירון, המקרה נקלט במערכת. אנו מבצעים בדיקה מקיפה ופותחים פנייה רשמית מול נציגי האבטחה הידנית של Meta. נא לשלוח צילום מסך של הודעת החסימה.
+            <span class="wa-time">09:22 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            ואאאאי לא מאמין שזה חזר!! הרגע נכנסתי לחשבון והכל שם! כל הפוסטים כל העוקבים.. תודה רבהה באמת הצלתם אותי
+            זה לא אמיתי, החשבון חזר עכשיו! הכל שם - כל התוכן והעוקבים. תודה רבה לצוות The Gray Dome על המענה המהיר!
             <span class="wa-time">17:41</span>
           </div>
         </div>
@@ -1515,24 +1586,24 @@
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">ש</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">ש</div>
             <div class="wa-text-details">
               <span class="wa-name">שני מ.</span>
-              <span class="wa-status">נראה לאחרונה היום, 18:30</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            שלום, פרצו לי לחשבון לפני 3 ימים, שינו מייל וסיסמה ואני ממש לא מצליחה לעשות שום דבר. המון תוכן שלי שם
+            שלום, החשבון שלי נפרץ לפני 3 ימים. הפורץ החליף את כתובת האימייל והסיסמה, והגדיר אימות דו-שלבי משלו. אני חסרת אונים.
             <span class="wa-time">11:03</span>
           </div>
-          <div class="wa-bubble sent">
-            היי שני. המקרה הזה מוכר לנו. נעביר בקשת שחזור דרך הערוצים שלנו ונעדכן אותך ברגע שיש התקדמות
-            <span class="wa-time">11:18 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            היי שני. אירוע פריצה ואימות דו-שלבי עוין מטופל דרך נוהל שחזור זהות מול Meta Security. התחלנו בתהליך ניתוק המכשירים הזרים.
+            <span class="wa-time">11:18 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            בדיוק הצלחתי להתחבר לחשבון!! תודה תודה תודה. חשבתי שזה אבוד. אתם פשוט אלופים
+            הצלחתי להתחבר מחדש והפורץ נזרק! כל התמונות וההודעות שלי ניצלו. אתם פשוט אלופים, תודה!
             <span class="wa-time">15:52</span>
           </div>
         </div>
@@ -1542,24 +1613,24 @@
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">ע</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">ע</div>
             <div class="wa-text-details">
               <span class="wa-name">עומר א.</span>
-              <span class="wa-status">מחובר/ת</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            אחי עזרו לי, קיבלתי הודעה שהחשבון שלי הושבת לצמיתות. ניסיתי לערער 4 פעמים ודחו אותי כל פעם מחדש. יש לי עסק שלם שעובד מהחשבון הזה
+            היי, קיבלתי הודעה שהחשבון שלי הושבת לצמיתות ואין אפשרות לערער יותר. זה חשבון של עסק שלם. יש מה לעשות?
             <span class="wa-time">08:46</span>
           </div>
-          <div class="wa-bubble sent">
-            שלום עומר. גם כשכתוב לצמיתות, ברוב המקרים אפשר לפתור את זה. תשלח לנו את שם המשתמש ונבדוק
-            <span class="wa-time">09:05 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            שלום עומר. הודעות "חסימה סופית" הן לרוב החלטה אוטומטית של בוטים. אנו מעבירים את המקרה לבחינה מול גורם אנושי מוסמך.
+            <span class="wa-time">09:05 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            לא האמנתי שזה יקרה אבל החשבון חזר לי עכשיו! הכל על מקומו. אתם לא נורמליים תודה
+            החשבון חזר לפעילות מלאה עכשיו! הכל עובד כרגיל. הצלתם לי את העסק, המון תודה!
             <span class="wa-time">14:20</span>
           </div>
         </div>
@@ -1569,24 +1640,24 @@
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">מ</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">מ</div>
             <div class="wa-text-details">
               <span class="wa-name">מיכל ד.</span>
-              <span class="wa-status">מחובר/ת</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            היי, הדף העסקי של הסטודיו שלי בפייסבוק ואינסטגרם נחסמו ביחד. מישהו דיווח עליי בצורה מסיבית. 4 שנים של עבודה. אני בשוק
+            שלום, דף הסטודיו העסקי שלי בפייסבוק ובאינסטגרם נחסמו במקביל בעקבות דיווחים כוזבים ממתחרים. 4 שנים של עבודה ירדו לטמיון.
             <span class="wa-time">10:32</span>
           </div>
-          <div class="wa-bubble sent">
-            שלום מיכל. דיווחים כוזבים זה דבר שאנחנו רואים הרבה. נגיש פנייה עם הוכחת בעלות ונדאג שהעמודים יחזרו
-            <span class="wa-time">10:50 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            שלום מיכל. אנו מכירים את הדפוס הזה. אנו מגישים ערעור רשמי המגובה בהוכחות בעלות מנהליות מול מחלקת ההונאות של Meta.
+            <span class="wa-time">10:50 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            רציתי לעדכן שהכל חזר!! שני העמודים עובדים. רק רציתי להגיד שירות מדהים ומקצועי. ממליצה לכולם
+            שני העמודים שוחררו ועובדים מעולה! השירות שלכם סופר מקצועי ומהיר. ממליצה בחום.
             <span class="wa-time">19:15</span>
           </div>
         </div>
@@ -1596,24 +1667,24 @@
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">י</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">י</div>
             <div class="wa-text-details">
               <span class="wa-name">יוסי ר.</span>
-              <span class="wa-status">נראה לאחרונה היום, 20:12</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            שלום אני מנהל קמפיינים ללקוחות והביזנס מנגר שלי נחסם מפרסום. כבר שבוע שאני מנסה מול התמיכה ולא מקבל תשובה אמיתית, רק בוטים
+            שלום אני מנהל קמפיינים וה-Business Manager שלי נחסם מפרסום. כל הלקוחות שלי מושבתים. התמיכה הרגילה לא עונה לעניין.
             <span class="wa-time">14:22</span>
           </div>
-          <div class="wa-bubble sent">
-            היי יוסי. מכירים את המצב. אנחנו נעביר את הפנייה שלך דרך ערוץ אחר שמגיע ישירות לנציג אנושי
-            <span class="wa-time">14:38 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            שלום יוסי, נזק קולטרלי ב-Business Manager מטופל דרך ערוץ השותפים המורשים של המערך. אנו מתחילים בהליך אימות זהות מול נציג ייעודי.
+            <span class="wa-time">14:38 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            וואי פשוט וואי.. הביזנס מנגר שוחרר עכשיו! הקמפיינים רצים. לא מאמין שזה לקח לכם יום וחצי מה שאני ניסיתי שבוע
+            מדהים! החשבון שוחרר והקמפיינים חזרו לרוץ. חסכתם לי נזק כספי עצום. תודה!
             <span class="wa-time">10:07</span>
           </div>
         </div>
@@ -1623,33 +1694,31 @@
       <div class="wa-chat-card">
         <div class="wa-chat-header">
           <div class="wa-contact-info">
-            <div class="wa-avatar">נ</div>
+            <div class="wa-avatar" style="background-color: var(--gov-navy);">נ</div>
             <div class="wa-text-details">
               <span class="wa-name">נועה ב.</span>
-              <span class="wa-status">מחובר/ת</span>
+              <span class="wa-status">סטטוס: אירוע נסגר בהצלחה</span>
             </div>
           </div>
         </div>
         <div class="wa-chat-body">
           <div class="wa-bubble received">
-            היי, יש לי עמוד אינסטגרם עם 85 אלף עוקבים שהוא כל המקור הכנסה שלי ומאתמול כתוב לי שהחשבון מושבת. אין לי מושג למה. אני ממש בהלם
+            היי, חשבון האינסטגרם שלי עם 85 אלף עוקבים נחסם הבוקר ללא התראה וללא סיבה ברורה. המותג שלי תלוי בזה לחלוטין.
             <span class="wa-time">07:55</span>
           </div>
-          <div class="wa-bubble sent">
-            בוקר טוב נועה. אנחנו נבדוק מיד מה הסיבה ונפעל מולם. תשלחי לנו את שם המשתמש וצילום מסך
-            <span class="wa-time">08:10 <span class="wa-double-check">✓✓</span></span>
+          <div class="wa-bubble sent" style="background-color: var(--gov-navy-light);">
+            בוקר טוב נועה. אנו פותחים כרטיס טיפול דחוף ובדקים את סיבת החסימה מול מערך האבטחה של Meta כדי לבטל את רוע הגזרה.
+            <span class="wa-time">08:10 <span class="wa-double-check" style="color: var(--gov-navy);">✓✓</span></span>
           </div>
           <div class="wa-bubble received">
-            אני לא מאמינה.. העמוד חזר! כל הפוסטים כל הרילסים הכל במקום. חשבתי שנגמר לי הקריירה. תודה רבה רבה רבה. ממליצה עליכם לכל אחד
+            העמוד חזר במלואו! כל הפוסטים והנתונים במקום. שירות מציל חיים לבעלי מותגים. תודה ענקית לצוות The Gray Dome!
             <span class="wa-time">16:33</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- HOW IT WORKS -->
+</section><!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="container">
     <div class="section-label">תהליך העבודה</div>

@@ -64,7 +64,7 @@ function buildPrompt(k, posts) {
 4. הוסף אזהרה קצרה מפני "משחררי חשבונות" שמבקשים סיסמאות או כופר.
 5. אורך: 1,100–1,500 מילים. מבנה: פתיח של 2–3 משפטים שעונה ישר לשאלה, ואז 5–7 כותרות H2 (עם H3 לפי הצורך), רשימות, וטבלה אחת לפחות אם מתאים.
 6. שלב באופן טבעי את מילת המפתח ווריאציות שלה (חסום/נחסם/הושבת/נפרץ/פרצו לי) בלי דחיסה.
-7. קישורים פנימיים: מותר לקשר רק ל-"/" (דף הבית) ולמאמרים מהרשימה הזו כשהם רלוונטיים:
+7. קישורים פנימיים: מותר לקשר רק ל-"/" (דף הבית), ל-"/facebook-recovery/" (כשהנושא פייסבוק), ל-"/whatsapp-recovery/" (כשהנושא וואטסאפ) ולמאמרים מהרשימה הזו כשהם רלוונטיים:
 ${related}
 
 החזר JSON תקין בלבד, בלי טקסט נוסף ובלי \`\`\`, במבנה:
@@ -189,7 +189,9 @@ function renderIndex(posts) {
 
 function renderSitemap(posts) {
   const urls = [
-    { loc: SITE + "/", pr: "1.0" }, { loc: SITE + "/blog/", pr: "0.8", lm: posts.at(-1)?.date },
+    { loc: SITE + "/", pr: "1.0" },
+    { loc: SITE + "/facebook-recovery/", pr: "0.9" }, { loc: SITE + "/whatsapp-recovery/", pr: "0.9" },
+    { loc: SITE + "/blog/", pr: "0.8", lm: posts.at(-1)?.date },
     ...posts.map((p) => ({ loc: `${SITE}/blog/${p.slug}/`, lm: p.date, pr: "0.7" }))
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls

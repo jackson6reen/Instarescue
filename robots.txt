@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /contract
+
+Sitemap: https://thegraydome.com/sitemap.xml

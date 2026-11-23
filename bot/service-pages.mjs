@@ -138,7 +138,7 @@ function render(p) {
     { "@context": "https://schema.org", "@type": "FAQPage",
       mainEntity: p.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
   ];
-  const cta = (label) => `<div class="cta"><p><strong>רוצים שנבדוק את המקרה שלכם?</strong></p><p>שלחו בוואטסאפ מה קרה. נחזור עם הערכה כנה ומחיר – לפני שמשלמים משהו.</p><a class="btn-wa" href="${wa(p.waMsg)}" target="_blank" rel="noopener">${label}</a><p style="font-size:15px;color:#5f6368;margin-top:10px">הוואטסאפ שלכם חסום? התקשרו: <a href="tel:+${WA}">050-284-3811</a></p></div>`;
+  const cta = (label) => `<div class="cta"><p><strong>רוצים שנבדוק את המקרה שלכם?</strong></p><p>שלחו בוואטסאפ מה קרה. נחזור עם הערכה כנה ומחיר – לפני שמשלמים משהו.</p><a class="btn-wa" href="${wa(p.waMsg)}" target="_blank" rel="noopener">${label}</a><p style="font-size:15px;color:#5f6368;margin-top:10px">הוואטסאפ שלכם חסום? התקשרו: <a href="tel:+${WA}" style="white-space:nowrap">050-284-3811</a></p></div>`;
   return `<!DOCTYPE html>
 <html lang="he" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(p.seo)}</title><meta name="description" content="${esc(p.desc)}"><link rel="canonical" href="${url}">

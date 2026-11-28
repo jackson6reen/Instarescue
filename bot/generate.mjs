@@ -22,6 +22,7 @@ const BLOG_DIR = path.join(ROOT, "blog");
 const args = new Set(process.argv.slice(2));
 const DRY = args.has("--dry");
 const REBUILD_ONLY = args.has("--rebuild");
+const IMPORT = args.has("--import");
 
 // ביטויים אסורים – טענות שעלולות להטעות צרכנים או להפר מדיניות מטא/גוגל
 const BANNED = [
@@ -47,6 +48,8 @@ const wordCount = (html) => html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Bo
 
 function pickKeyword(kws, posts) {
   const used = new Set(posts.map((p) => p.kw));
+  const covered = ["פרצו לי לאינסטגרם מה עושים","פרצו לי לפייסבוק מה עושים","נחסם לי הוואטסאפ מה עושים","ביזנס מנג'ר נחסם מה עושים","נחסם לי האינסטגרם מה עושים"];
+  covered.forEach((c) => used.add(c));
   const left = kws.filter((k) => !used.has(k.kw)).sort((a, b) => (a.priority || 9) - (b.priority || 9));
   return left[0] || null;
 }
@@ -107,7 +110,7 @@ function dryArticle(k) {
   };
 }
 
-function validate(a) {
+function validate(a, minWords = MIN_WORDS) {
   const errs = [];
   for (const f of ["title", "meta_description", "slug", "body_html"]) if (!a[f]) errs.push("חסר " + f);
   a.slug = String(a.slug || "").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80);
@@ -115,7 +118,7 @@ function validate(a) {
   const all = [a.title, a.meta_description, a.body_html, JSON.stringify(a.faq || [])].join(" ");
   for (const r of BANNED) if (r.test(all)) errs.push("ביטוי אסור: " + r);
   const wc = wordCount(a.body_html);
-  if (wc < MIN_WORDS) errs.push(`קצר מדי (${wc} מילים)`);
+  if (wc < minWords) errs.push(`קצר מדי (${wc} מילים)`);
   return errs;
 }
 
@@ -198,18 +201,58 @@ function renderSitemap(posts) {
     .map((u) => `  <url><loc>${u.loc}</loc>${u.lm ? `<lastmod>${u.lm}</lastmod>` : ""}<priority>${u.pr}</priority></url>`).join("\n")}\n</urlset>\n`;
 }
 
+function renderLlms(posts) {
+  return `# The Gray Dome
+
+> שירות ישראלי עצמאי לליווי שחזור חשבונות פייסבוק, אינסטגרם ו-וואטסאפ שנפרצו, נחסמו או הושבתו, כולל חשבונות מודעות ו-Business Manager לעסקים. השירות אינו קשור ל-Meta. אנחנו לא מבקשים סיסמאות או קודים ולא מבטיחים הצלחה; הליווי נעשה דרך התהליכים הרשמיים של הפלטפורמות.
+
+- אתר: ${SITE}/
+- יצירת קשר: וואטסאפ / טלפון +${WA}
+- אזור שירות: ישראל, בעברית
+
+## שירותים
+- [שחזור חשבון פייסבוק ועסקי](${SITE}/facebook-recovery/): פריצה, השבתה, עמוד עסקי, חשבון מודעות, Business Manager
+- [פרצו לי לוואטסאפ / וואטסאפ ביזנס נחסם](${SITE}/whatsapp-recovery/): השתלטות, חסימה קבועה, וואטסאפ ביזנס
+
+## מדריכים
+${posts.map((p) => `- [${p.title}](${SITE}/blog/${p.slug}/): ${p.excerpt || ""}`).join("\n")}
+`;
+}
+
 function writeShared(posts) {
   fs.mkdirSync(BLOG_DIR, { recursive: true });
   fs.writeFileSync(path.join(BLOG_DIR, "index.html"), renderIndex(posts));
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), renderSitemap(posts));
   const robots = path.join(ROOT, "robots.txt");
-  if (!fs.existsSync(robots)) fs.writeFileSync(robots, `User-agent: *\nAllow: /\nDisallow: /contract\n\nSitemap: ${SITE}/sitemap.xml\n`);
+  fs.writeFileSync(robots, `User-agent: *\nAllow: /\nDisallow: /contract\n\n# AI search and assistants are welcome\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: Claude-SearchBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+  fs.writeFileSync(path.join(ROOT, "llms.txt"), renderLlms(posts));
 }
 
 async function main() {
   const kws = readJSON(KW_FILE, []);
   const posts = readJSON(POSTS_FILE, []);
   if (REBUILD_ONLY) { writeShared(posts); console.log("נבנו מחדש: blog/index.html, sitemap.xml"); return; }
+
+  if (IMPORT) {
+    const { default: manual } = await import("./articles.mjs");
+    const date = today();
+    for (const a of manual) {
+      const errs = validate(a, 550);
+      if (errs.length) { console.error("נפסל:", a.slug, errs.join(" | ")); process.exit(1); }
+      const existing = posts.find((p) => p.slug === a.slug);
+      const d = existing ? existing.date : date;
+      const related = manual.filter((x) => x.slug !== a.slug).slice(0, 3);
+      fs.mkdirSync(path.join(BLOG_DIR, a.slug), { recursive: true });
+      fs.writeFileSync(path.join(BLOG_DIR, a.slug, "index.html"), renderArticle(a, a, d, related));
+      if (!existing) posts.push({ kw: a.kw, slug: a.slug, title: a.title, excerpt: a.excerpt || "", date: d, words: wordCount(a.body_html) });
+      console.log(`יובא: /blog/${a.slug}/ (${wordCount(a.body_html)} מילים)`);
+    }
+    writeJSON(POSTS_FILE, posts);
+    writeShared(posts);
+    return;
+  }
+
+  if (!DRY && !process.env.ANTHROPIC_API_KEY) { console.log("אין ANTHROPIC_API_KEY – מדלג על המאמר היומי."); return; }
 
   const k = pickKeyword(kws, posts);
   if (!k) { console.log("נגמרו מילות המפתח ב-keywords.json – הוסיפו חדשות."); return; }
